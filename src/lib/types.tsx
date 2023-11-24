@@ -7,3 +7,11 @@ type CardTaskData = {
   date_modified: Date | number, // Number is here due to how Date works!
   completed: boolean
 }
+
+type FolderData = {
+  id?: string,
+  position: number,
+  title: string,
+  cards?: Array<CardTaskData>,
+  expand?: boolean,
+}
