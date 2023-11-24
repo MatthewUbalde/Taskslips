@@ -7,8 +7,8 @@ import Checkbox from '../Checkbox/Checkbox';
 const CardTask = ({id, body, date_modified, completed}: CardTaskData ) => {
   return (
     <div className='card-task' id={id}>
-      <div className='card-label'/>
-      <div className='card-body'>
+      <div className='label'/>
+      <div className='container'>
         <p className='card-text'>{body}</p>
         <p className='card-date-modified'>{dayjs(date_modified).format('MMM. DD, YYYY')}</p>
       </div>

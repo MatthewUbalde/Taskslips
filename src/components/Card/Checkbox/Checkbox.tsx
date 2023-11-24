@@ -9,8 +9,8 @@ const Checkbox = ({isCompleted}: Prop) => {
   const [completed, setCompleted] = useState(isCompleted);
 
   return (
-    <button onClick={() => setCompleted(!completed)}>
-      {completed ? '[]' : '[x]'}
+    <button onClick={() => setCompleted(!completed)} className='checkbox'>
+      {completed ? '[ ]' : '[x]'}
     </button>
   )
 }
