@@ -22,18 +22,16 @@ const Folder = ({ id, title, cards }: FolderData) => {
     id: id,
   });
 
-  const onDragEnd = (event: DragEndEvent) => {
-    const { active, over } = event;
-
+  
+  const onDragEnd = ({active, over}: DragEndEvent) => {
     if (active.id === over?.id) return;
-
-    setCurrentCards((currentCards) => {
-      const oldIndex = currentCards.findIndex((user) => user.id === active.id);
-      const newIndex = currentCards.findIndex((user) => user.id === over?.id);
-      return arrayMove(currentCards, oldIndex, newIndex);
+    setCurrentCards((updateCards) => {
+      const oldIndex = updateCards.findIndex((card) => card.id === active.id);
+      const newIndex = updateCards.findIndex((card) => card.id === over?.id);
+      return arrayMove(updateCards, oldIndex, newIndex);
     });
 
-    console.log(active.id + '>' + over?.id)
+    console.log(currentCards)
   };
 
   return (
