@@ -10,7 +10,7 @@ type CardTaskData = {
   completed: boolean
 }
 
-type FolderData = {
+type CardFolderData = {
   id?: string,
   position: number,
   title: string,

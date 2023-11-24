@@ -1,19 +1,37 @@
 import "./App.scss";
-import CardTask from "./components/Card/Task/CardTask";
-import FolderTitle from "./components/Folder/Title/FolderTitle";
+import Folder from "./components/Folder/Folder";
 
 function App() {
+  const testCards: Array<CardTaskData> = [
+    {
+      id: 'test',
+      position: 0,
+      label_index: 0,
+      children: 'testing!',
+      date_modified: Date.now(),
+      completed: false 
+    },
+    {
+      id: 'test',
+      position: 0,
+      label_index: 0,
+      children: 'testing!',
+      date_modified: Date.now(),
+      completed: false 
+    },
+    {
+      id: 'test',
+      position: 0,
+      label_index: 0,
+      children: 'testing!',
+      date_modified: Date.now(),
+      completed: false 
+    },
+  ]
+
   return (
     <>
-      <FolderTitle title="Title"/>
-      <CardTask
-        id="1"
-        position={0}
-        completed={false}
-        date_modified={Date.now()}
-      >
-        Testing!
-      </CardTask>
+      <Folder position={0} title='Testing' cards={testCards} expand={true}/>
     </>
   );
 }
