@@ -1,9 +1,11 @@
 import "./App.scss";
 import CardTask from "./components/Card/Task/CardTask";
+import FolderTitle from "./components/Folder/Title/FolderTitle";
 
 function App() {
   return (
     <>
+      <FolderTitle title="Title"/>
       <CardTask
         id="1"
         position={0}

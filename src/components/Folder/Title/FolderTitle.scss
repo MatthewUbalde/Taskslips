@@ -1,0 +1,19 @@
+@import '../../../colors.scss';
+
+.folder-title {
+  background-color: $primary-color-1;
+  
+  width: 60vw;
+  height: auto;
+
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  overflow: hidden;
+
+  h1 {
+   color: $primary-color-3;
+   margin: 0;
+  }
+}
