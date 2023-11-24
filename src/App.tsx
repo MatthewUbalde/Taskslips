@@ -4,24 +4,21 @@ import Folder from "./components/Folder/Folder";
 function App() {
   const testCards: Array<CardTaskData> = [
     {
-      id: 'test',
-      position: 0,
+      id: 0,
       label_index: 0,
       body: 'testing!',
       date_modified: Date.now(),
       completed: false 
     },
     {
-      id: 'test',
-      position: 0,
+      id: 1,
       label_index: 0,
       body: 'testing!',
       date_modified: Date.now(),
       completed: false 
     },
     {
-      id: 'test',
-      position: 0,
+      id: 2,
       label_index: 0,
       body: 'testing!',
       date_modified: Date.now(),
@@ -31,7 +28,7 @@ function App() {
 
   return (
     <>
-      <Folder position={0} title='Testing' cards={testCards} expand={true}/>
+      <Folder title='Testing' cards={testCards} expand={true}/>
     </>
   );
 }

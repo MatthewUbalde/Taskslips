@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 type CardTaskData = {
-  id?: string,
-  position: number,
+  id?: number,
   label_index?: number,
   body?: string,
   date_modified: Date | number, // Number is here due to how Date works!
@@ -9,8 +8,7 @@ type CardTaskData = {
 }
 
 type FolderData = {
-  id?: string,
-  position: number,
+  id?: number,
   title: string,
   cards?: Array<CardTaskData>,
   expand?: boolean,

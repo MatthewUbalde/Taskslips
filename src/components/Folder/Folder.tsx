@@ -9,9 +9,9 @@ const Folder = ({ title, cards }: FolderData) => {
 
       <div className="folder-container">
         {cards?.map(
-          (value) => (
+          (value, index) => (
             <CardTask
-              position={value.position}
+              id={index}
               date_modified={value.date_modified}
               completed={value.completed}
               body={value.body}

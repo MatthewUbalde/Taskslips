@@ -29,7 +29,7 @@
 
     textarea {
       background-color: $primary-color-1;
-      color: $primary-color-2;
+      color: $primary-color-3;
 
       font-size: 1rem;
       resize: none;
@@ -42,6 +42,7 @@
     }
 
     p {
+      color: $primary-color-3;
       margin: 0;
     }
   }
