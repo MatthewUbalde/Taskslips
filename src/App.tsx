@@ -11,8 +11,9 @@ function App() {
         position={0}
         completed={false}
         date_modified={Date.now()}
-        body={"Hello! This is a test of what it should look like!"}
-      />
+      >
+        Testing!
+      </CardTask>
     </>
   );
 }
