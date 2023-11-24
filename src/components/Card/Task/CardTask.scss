@@ -27,6 +27,20 @@
 
     text-align: left;
 
+    textarea {
+      background-color: $primary-color-1;
+      color: $primary-color-2;
+
+      font-size: 1rem;
+      resize: none;
+
+      height: 100%;
+      width: 100%;
+
+      border: none;
+      border-radius: 8px;
+    }
+
     p {
       margin: 0;
     }

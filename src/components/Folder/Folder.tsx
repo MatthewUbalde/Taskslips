@@ -1,4 +1,3 @@
-import React, { ReactNode } from "react";
 import "./Folder.scss";
 import CardTask from "../Card/Task/CardTask";
 import FolderTitle from "./Title/FolderTitle";
@@ -10,19 +9,13 @@ const Folder = ({ title, cards }: FolderData) => {
 
       <div className="folder-container">
         {cards?.map(
-          (value: {
-            position: number;
-            date_modified: Date;
-            completed: boolean;
-            children: ReactNode;
-          }) => (
+          (value) => (
             <CardTask
               position={value.position}
               date_modified={value.date_modified}
               completed={value.completed}
-            >
-              {value.children}
-            </CardTask>
+              body={value.body}
+            />
           )
         )}
       </div>

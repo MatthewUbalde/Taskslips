@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import dayjs from "dayjs";
 
 import "./CardTask.scss";
 import Checkbox from "../Checkbox/Checkbox";
 
-const CardTask = ({ id, children, date_modified, completed }: CardTaskData) => {
+const CardTask = ({ id, body, date_modified, completed }: CardTaskData) => {
+  const [textfield, setTextfield] = useState(body);
+  
+  const onChangeTextfield = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setTextfield(event.target.value);
+  }
+
   return (
-    <div className="card-task" id={id}>
+    <form className="card-task" id={id}>
       <div className="label" />
       <div className="container">
-        <p className="card-text">{children}</p>
+        <textarea placeholder="body" value={textfield} onChange={onChangeTextfield}/>
         <p className="card-date-modified small-text">
           {`Created: ${dayjs(date_modified).format("MMM. DD, YYYY")}`}
         </p>
       </div>
       <Checkbox isCompleted={completed} />
-    </div>
+    </form>
   );
 };
 

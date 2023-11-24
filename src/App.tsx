@@ -7,7 +7,7 @@ function App() {
       id: 'test',
       position: 0,
       label_index: 0,
-      children: 'testing!',
+      body: 'testing!',
       date_modified: Date.now(),
       completed: false 
     },
@@ -15,7 +15,7 @@ function App() {
       id: 'test',
       position: 0,
       label_index: 0,
-      children: 'testing!',
+      body: 'testing!',
       date_modified: Date.now(),
       completed: false 
     },
@@ -23,7 +23,7 @@ function App() {
       id: 'test',
       position: 0,
       label_index: 0,
-      children: 'testing!',
+      body: 'testing!',
       date_modified: Date.now(),
       completed: false 
     },
