@@ -1,18 +1,27 @@
 .folder {
-
-  width: auto;
-  height: 100%;
+  width: calc(40vw + 0.5rem);
+  height: auto;
   overflow: hidden;
 
   .folder-container {
     width: 100%;
+    height: calc(60vh + 1rem);
 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 0.5rem;
   }
 
-  .card-task {
-    margin-top: 1rem;
+  .folder-container:hover {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.folder:hover {
+  width: 80vw;
+
+  .folder-container {
+    grid-template-columns: 1fr 1fr;
   }
 }

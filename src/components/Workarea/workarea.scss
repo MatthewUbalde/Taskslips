@@ -1,0 +1,8 @@
+.workarea {
+  width: auto;
+  display: inline-flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}

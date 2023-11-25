@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { useSortable } from "@dnd-kit/sortable";
 // import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 import dayjs from "dayjs";
 
-import { CardTaskData } from "../../../lib/types";
 import Checkbox from "../Checkbox/Checkbox";
+import { CardTaskData } from "../../../lib/types";
 import "./CardTask.scss";
-import { useSortable } from "@dnd-kit/sortable";
+
+const onSubmit = () => {
+  // Save it?
+}
 
 const CardTask = ({ id, body, date_modified, completed }: CardTaskData) => {
   const [textfield, setTextfield] = useState(body);
@@ -19,18 +23,21 @@ const CardTask = ({ id, body, date_modified, completed }: CardTaskData) => {
   };
 
   const onChangeTextfield = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    event.preventDefault();
     setTextfield(event.target.value);
-  };
+  }
 
   return (
-    <form
+    <div
       ref={setNodeRef}
       style={style}
       className="card-task"
       id={id.toString()}
+      {...listeners} 
+      {...attributes}
     >
       <div className="label" />
-      <div className="container">
+      <form className="container" onSubmit={onSubmit}>
         <textarea
           placeholder="body"
           value={textfield}
@@ -39,10 +46,9 @@ const CardTask = ({ id, body, date_modified, completed }: CardTaskData) => {
         <p className="card-date-modified small-text">
           {`Created: ${dayjs(date_modified).format("MMM. DD, YYYY")}`}
         </p>
-      </div>
+      </form>
       <Checkbox isCompleted={completed}/>
-      <button {...listeners} {...attributes}/>
-    </form>
+    </div>
   );
 };
 
