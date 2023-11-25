@@ -1,3 +1,5 @@
+@import '../../colors.scss';
+
 .folder {
   width: calc(40vw + 0.5rem);
   height: auto;
@@ -29,9 +31,6 @@
 .folder-title {
   background-color: $primary-color-1;
 
-  padding: 0.5rem;
-  padding-bottom: 0;
-
   border-radius: 8px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -40,9 +39,20 @@
 
   overflow: hidden;
 
-  h1 {
-    text-align: center;
+  input {
+    width: 100%;
+
+    background-color: $primary-color-1;
     color: $primary-color-3;
+    
+    padding: 0;
     margin: 0;
+    margin-top: 0.5rem;
+
+    font-size: 1.5rem;
+    text-align: center;
+
+    border: none;
+    border-radius: 8px;
   }
 }

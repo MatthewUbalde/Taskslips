@@ -13,6 +13,7 @@ import {
 
 import { FolderData } from "../../lib/types";
 import CardTask from "../Card/Task/CardTask";
+import FolderTitle from "./FolderTitle";
 import "./Folder.scss";
 
 const Folder = ({ id, title, cards }: FolderData) => {
@@ -28,22 +29,17 @@ const Folder = ({ id, title, cards }: FolderData) => {
       const newIndex = cards.findIndex((card) => card.id === over?.id);
       return arrayMove(cards, oldIndex, newIndex);
     });
-
-    console.log(currentCards);
   };
 
   return (
     <div className="folder">
       <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
-        <div className="folder-title">
-          <h1>{title}</h1>
-        </div>
+        <FolderTitle title={title}/>
         <div className="folder-container" ref={setNodeRef}>
           <SortableContext
             items={currentCards}
             strategy={verticalListSortingStrategy}
           >
-            {currentCards?.map((card) => (
             {currentCards.map((card) => (
               <CardTask
                 id={card.id}
