@@ -2,9 +2,10 @@ import { useState } from "react";
 
 interface Prop {
   title: string,
+  maxLength?: number
 }
 
-const FolderTitle = ({title}: Prop) => {
+const FolderTitle = ({title, maxLength}: Prop) => {
   const [folderTitle, setFolderTitle] = useState(title);
   return (
     <form className="folder-title">
@@ -13,6 +14,7 @@ const FolderTitle = ({title}: Prop) => {
         title="title"
         value={folderTitle}
         onChange={(event) => setFolderTitle(event.target.value)}
+        maxLength={maxLength}
       />
     </form>
   );

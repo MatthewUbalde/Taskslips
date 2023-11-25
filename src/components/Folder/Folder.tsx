@@ -34,7 +34,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
   return (
     <div className="folder">
       <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
-        <FolderTitle title={title}/>
+        <FolderTitle title={title} maxLength={20}/>
         <div className="folder-container" ref={setNodeRef}>
           <SortableContext
             items={currentCards}
