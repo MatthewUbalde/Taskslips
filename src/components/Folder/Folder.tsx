@@ -23,10 +23,10 @@ const Folder = ({ id, title, cards }: FolderData) => {
 
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id === over?.id) return;
-    setCurrentCards((updateCards) => {
-      const oldIndex = updateCards.findIndex((card) => card.id === active.id);
-      const newIndex = updateCards.findIndex((card) => card.id === over?.id);
-      return arrayMove(updateCards, oldIndex, newIndex);
+    setCurrentCards((cards) => {
+      const oldIndex = cards.findIndex((card) => card.id === active.id);
+      const newIndex = cards.findIndex((card) => card.id === over?.id);
+      return arrayMove(cards, oldIndex, newIndex);
     });
 
     console.log(currentCards);
@@ -44,6 +44,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
             strategy={verticalListSortingStrategy}
           >
             {currentCards?.map((card) => (
+            {currentCards.map((card) => (
               <CardTask
                 id={card.id}
                 key={card.id}
