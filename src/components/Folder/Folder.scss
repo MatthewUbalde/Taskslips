@@ -25,3 +25,24 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.folder-title {
+  background-color: $primary-color-1;
+
+  padding: 0.5rem;
+  padding-bottom: 0;
+
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  margin-bottom: 1rem;
+
+  overflow: hidden;
+
+  h1 {
+    text-align: center;
+    color: $primary-color-3;
+    margin: 0;
+  }
+}

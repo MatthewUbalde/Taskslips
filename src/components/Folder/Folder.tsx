@@ -6,7 +6,6 @@ import {
 } from "@dnd-kit/core";
 
 import CardTask from "../Card/Task/CardTask";
-import FolderTitle from "./Title/FolderTitle";
 import { FolderData } from "../../lib/types";
 import "./Folder.scss";
 import {
@@ -22,8 +21,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
     id: id,
   });
 
-  
-  const onDragEnd = ({active, over}: DragEndEvent) => {
+  const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id === over?.id) return;
     setCurrentCards((updateCards) => {
       const oldIndex = updateCards.findIndex((card) => card.id === active.id);
@@ -31,13 +29,15 @@ const Folder = ({ id, title, cards }: FolderData) => {
       return arrayMove(updateCards, oldIndex, newIndex);
     });
 
-    console.log(currentCards)
+    console.log(currentCards);
   };
 
   return (
     <div className="folder">
       <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
-        <FolderTitle title={title} />
+        <div className="folder-title">
+          <h1>{title}</h1>
+        </div>
         <div className="folder-container" ref={setNodeRef}>
           <SortableContext
             items={currentCards}
