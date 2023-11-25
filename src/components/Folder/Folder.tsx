@@ -1,19 +1,19 @@
+import { useState } from "react";
 import {
   DndContext,
   DragEndEvent,
   closestCorners,
   useDroppable,
 } from "@dnd-kit/core";
-
-import CardTask from "../Card/Task/CardTask";
-import { FolderData } from "../../lib/types";
-import "./Folder.scss";
 import {
   SortableContext,
   arrayMove,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { useState } from "react";
+
+import { FolderData } from "../../lib/types";
+import CardTask from "../Card/Task/CardTask";
+import "./Folder.scss";
 
 const Folder = ({ id, title, cards }: FolderData) => {
   const [currentCards, setCurrentCards] = useState(cards);
