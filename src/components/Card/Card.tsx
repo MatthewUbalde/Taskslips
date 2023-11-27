@@ -4,16 +4,15 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import dayjs from "dayjs";
 
-import Checkbox from "../Checkbox/Checkbox";
-import { CardTaskData } from "../../../lib/types";
-import "./CardTask.scss";
+import { CardData } from "../../lib/types";
+import "./Card.scss";
 
 const onSubmit = () => {
   // Save it?
 }
 
-const CardTask = ({ id, body, date_modified, completed }: CardTaskData) => {
-  const [textfield, setTextfield] = useState(body);
+const CardTask = ({ id, description, date_modified, progression, importance, is_optional }: CardData) => {
+  const [textfield, setTextfield] = useState(description);
   const { attributes, listeners, setNodeRef, transform } = useSortable ({
     id: id,
   });
@@ -31,15 +30,16 @@ const CardTask = ({ id, body, date_modified, completed }: CardTaskData) => {
     <div
       ref={setNodeRef}
       style={style}
-      className="card-task"
+      className={`card card-${is_optional ? 'optional' : ''}`}
       id={id.toString()}
       {...listeners} 
       {...attributes}
     >
-      <div className="label" />
-      <form className="container" onSubmit={onSubmit}>
+      <div className={`label label-${importance}`} />
+      <div className={`label label-${progression}`} />
+      <form onSubmit={onSubmit}>
         <textarea
-          placeholder="body"
+          placeholder="Insert field"
           name="card-field"
           value={textfield}
           onChange={handleChange}
@@ -49,7 +49,6 @@ const CardTask = ({ id, body, date_modified, completed }: CardTaskData) => {
           {`Created: ${dayjs(date_modified).format("MMM. DD, YYYY")}`}
         </p>
       </form>
-      <Checkbox isCompleted={completed}/>
     </div>
   );
 };

@@ -12,7 +12,7 @@ import {
 } from "@dnd-kit/sortable";
 
 import { FolderData } from "../../lib/types";
-import CardTask from "../Card/Task/CardTask";
+import CardTask from "../Card/Card";
 import FolderTitle from "./FolderTitle";
 import "./Folder.scss";
 
@@ -44,9 +44,11 @@ const Folder = ({ id, title, cards }: FolderData) => {
               <CardTask
                 id={card.id}
                 key={card.id}
+                description={card.description}
                 date_modified={card.date_modified}
-                completed={card.completed}
-                body={card.body}
+                progression={card.progression}
+                importance={card.importance}
+                is_optional={card.is_optional}
               />
             ))}
           </SortableContext>

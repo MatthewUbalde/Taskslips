@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 interface Prop {
-  title: string,
+  title?: string,
   maxLength?: number
 }
 
