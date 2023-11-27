@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {v4 as uuidv4} from 'uuid'
 import {
   DndContext,
   DragEndEvent,
@@ -11,7 +12,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 
-import { FolderData } from "../../lib/types";
+import { CardData, FolderData } from "../../lib/types";
 import CardTask from "../Card/Card";
 import FolderTitle from "./FolderTitle";
 import "./Folder.scss";
@@ -21,20 +22,35 @@ const Folder = ({ id, title, cards }: FolderData) => {
   const { setNodeRef } = useDroppable({
     id: id,
   });
-
+  
+  
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id === over?.id) return;
-    setCurrentCards((cards) => {
-      const oldIndex = cards.findIndex((card) => card.id === active.id);
-      const newIndex = cards.findIndex((card) => card.id === over?.id);
-      return arrayMove(cards, oldIndex, newIndex);
+    setCurrentCards((value) => {
+      if (value === undefined) return value;
+
+      const oldIndex = value.findIndex((card) => card.id === active.id);
+      const newIndex = value.findIndex((card) => card.id === over?.id);
+      return arrayMove(value, oldIndex, newIndex);
     });
   };
+  
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    if (currentCards === undefined) return;
+    const newCardData: CardData = {
+      id: uuidv4(),
+      date_modified: Date.now(),
+      is_optional: false,
+    };
+    setCurrentCards([...currentCards, newCardData]);
+  }
 
   return (
     <div className="folder">
+      <FolderTitle title={title} maxLength={20} onClickAddCard={handleClick}/>
       <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
-        <FolderTitle title={title} maxLength={20}/>
+        {currentCards !== undefined &&
         <div className="folder-container" ref={setNodeRef}>
           <SortableContext
             items={currentCards}
@@ -52,7 +68,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
               />
             ))}
           </SortableContext>
-        </div>
+        </div>}
       </DndContext>
     </div>
   );

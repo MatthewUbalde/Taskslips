@@ -2,10 +2,11 @@ import { useState } from "react";
 
 interface Prop {
   title?: string,
-  maxLength?: number
+  maxLength?: number,
+  onClickAddCard: (event: React.MouseEvent<HTMLButtonElement>) => void,
 }
 
-const FolderTitle = ({title, maxLength}: Prop) => {
+const FolderTitle = ({title, maxLength, onClickAddCard}: Prop) => {
   const [folderTitle, setFolderTitle] = useState(title);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -22,6 +23,7 @@ const FolderTitle = ({title, maxLength}: Prop) => {
         onChange={handleChange}
         maxLength={maxLength}
       />
+      <button className="folder-add-card-btn" onClick={onClickAddCard}>Add Card</button>
     </form>
   );
 };
