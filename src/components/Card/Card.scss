@@ -46,6 +46,7 @@
       resize: none;
 
       height: 100%;
+      width: 100%;
 
       border: none;
       border-radius: 8px;
@@ -55,5 +56,31 @@
       color: $primary-color-3;
       margin: 0;
     }
+  }
+}
+
+.drag-handle {
+  width: 2.5rem;
+  height: 2.5rem;
+
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+
+  background-color: $primary-color-3;
+
+  border: none;
+  border-radius: 8px;
+
+  opacity: 0;
+}
+
+.card:hover {
+  .drag-handle {
+    opacity: 0.2;
+  }
+
+  .drag-handle:hover {
+    opacity: 1;
   }
 }

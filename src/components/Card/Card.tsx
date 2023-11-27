@@ -13,7 +13,7 @@ const onSubmit = () => {
 
 const CardTask = ({ id, description, date_modified, progression, importance, is_optional }: CardData) => {
   const [textfield, setTextfield] = useState(description ?? '');
-  const { attributes, listeners, setNodeRef, transform } = useSortable ({
+  const { attributes, listeners, setActivatorNodeRef, setNodeRef, transform } = useSortable ({
     id: id,
   });
 
@@ -22,7 +22,8 @@ const CardTask = ({ id, description, date_modified, progression, importance, is_
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    event.preventDefault();
+    event.stopPropagation();
+    // event.preventDefault();
     setTextfield(event.target.value);
   }
 
@@ -32,7 +33,6 @@ const CardTask = ({ id, description, date_modified, progression, importance, is_
       style={style}
       className={`card card-${is_optional ? 'optional' : ''}`}
       id={id.toString()}
-      {...listeners} 
       {...attributes}
     >
       <div className={`label label-${importance}`} />
@@ -49,6 +49,9 @@ const CardTask = ({ id, description, date_modified, progression, importance, is_
           {`Created: ${dayjs(date_modified).format("MMM. DD, YYYY")}`}
         </p>
       </form>
+      <button className={'drag-handle'} ref={setActivatorNodeRef} {...listeners}>
+        Move
+      </button>
     </div>
   );
 };
