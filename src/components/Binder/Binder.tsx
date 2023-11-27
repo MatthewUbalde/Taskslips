@@ -14,9 +14,10 @@ const Workarea = () => {
   const temp: Array<CardData> = []
 
   return (
-    <div className='workarea'>
+    <div className='binder'>
       <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
         <Folder id={1} cards={temp}/>
+        <Folder id={2} cards={temp}/>
         <Folder id={2} cards={temp}/>
       </DndContext>
     </div>

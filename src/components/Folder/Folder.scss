@@ -1,65 +1,86 @@
 @import '../../colors.scss';
 
 .folder {
+  display: flex;
+  flex-direction: column;
+  
   width: auto;
-  height: auto;
+  //height: calc(15vh + 40vh + 0.5rem + 0.5rem);
 
   overflow: hidden;
 
+  flex-shrink: 0;
   .folder-container {
-    height: calc(40vh + 1rem);
-    
+    height: calc(40vh + 0.5rem);
+
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: 20vh;
     
     gap: 0.5rem;
-
-    place-self: center;
-
     overflow-y: hidden;
   }
 
-  .folder-add-card-btn {
+  .folder-title {
+    display: flex;
+    flex-direction: column;
+
+    height: 15vh;
+
+    margin-bottom: 0.5rem;
+  
+    overflow: hidden;
+  
+    form {
+      background-color: $primary-color-1;
+      width: 100%;
+      
+      border-radius: 8px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+
+      input {
+        background-color: $primary-color-1;
+        color: $primary-color-3;
+        
+        width: calc(100% - 1rem);
+  
+        padding: 0;
+        margin: 0.5rem 0.5rem;
     
+        font-size: 1.5rem;
+        text-align: center;
+    
+        border: none;
+        border-radius: 8px;
+      }
+    }
+  
+    .folder-add-card-btn {
+      background-color: $primary-color-2;
+      color: $primary-color-1;
+      
+      font-size: 0.75rem;
+  
+      margin: 0 0.5rem;
+      padding: 0.25rem 0;
+      
+      border-radius: 8px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+  
+      border: none;
+    }
   }
 }
 
 .folder:hover {
+  // height: calc(15vh + 80vh + 1.5rem + 0.5rem);
   .folder-container {
     height: calc(80vh + 1.5rem);
 
     grid-template-columns: 1fr 1fr;
 
     overflow-y: scroll;
-  }
-}
-
-.folder-title {
-  background-color: $primary-color-1;
-
-  border-radius: 8px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-
-  margin-bottom: 1rem;
-
-  overflow: hidden;
-
-  input {
-    width: 100%;
-
-    background-color: $primary-color-1;
-    color: $primary-color-3;
-    
-    padding: 0;
-    margin: 0;
-    margin-top: 0.5rem;
-
-    font-size: 1.5rem;
-    text-align: center;
-
-    border: none;
-    border-radius: 8px;
   }
 }

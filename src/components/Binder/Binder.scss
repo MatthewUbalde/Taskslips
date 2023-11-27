@@ -1,8 +1,13 @@
-.workarea {
-  width: auto;
-  display: inline-flex;
+.binder {
+  width: 100%;
+  height: 100vh;
+  display: flex;
   flex-direction: row;
-  gap: 2rem;
+  
   flex-wrap: nowrap;
   overflow-x: scroll;
+
+  .folder {
+    margin: 0 0.5rem;
+  }
 }
