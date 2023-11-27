@@ -22,7 +22,7 @@ const CardTask = ({ id, body, date_modified, completed }: CardTaskData) => {
     transform: CSS.Translate.toString(transform),
   };
 
-  const onChangeTextfield = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     event.preventDefault();
     setTextfield(event.target.value);
   }
@@ -40,8 +40,10 @@ const CardTask = ({ id, body, date_modified, completed }: CardTaskData) => {
       <form className="container" onSubmit={onSubmit}>
         <textarea
           placeholder="body"
+          name="card-field"
           value={textfield}
-          onChange={onChangeTextfield}
+          onChange={handleChange}
+          wrap='soft'
         />
         <p className="card-date-modified small-text">
           {`Created: ${dayjs(date_modified).format("MMM. DD, YYYY")}`}
