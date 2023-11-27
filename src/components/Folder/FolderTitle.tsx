@@ -7,7 +7,7 @@ interface Prop {
 }
 
 const FolderTitle = ({ title, maxLength, onClickAddCard }: Prop) => {
-  const [folderTitle, setFolderTitle] = useState(title);
+  const [folderTitle, setFolderTitle] = useState(title ?? '');
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     event.preventDefault();

@@ -12,7 +12,7 @@ const onSubmit = () => {
 }
 
 const CardTask = ({ id, description, date_modified, progression, importance, is_optional }: CardData) => {
-  const [textfield, setTextfield] = useState(description);
+  const [textfield, setTextfield] = useState(description ?? '');
   const { attributes, listeners, setNodeRef, transform } = useSortable ({
     id: id,
   });
