@@ -1,11 +1,9 @@
 import "./App.scss";
-import Workarea from "./components/Workarea/Workarea";
+import Binder from "./components/Binder/Binder";
 
 function App() {
-  
-
   return (
-    <Workarea/>
+    <Binder/>
   );
 }
 

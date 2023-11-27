@@ -11,9 +11,13 @@ const onDragEnd = (event: DragEndEvent) => {
 }
 
 const Workarea = () => {
+  const temp: Array<CardData> = []
+
   return (
     <div className='workarea'>
       <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
+        <Folder id={1} cards={temp}/>
+        <Folder id={2} cards={temp}/>
       </DndContext>
     </div>
   )
