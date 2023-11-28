@@ -1,21 +1,33 @@
+@import './colors.scss';
+
 .field {
   height: 100%;
   width: 100%;
 
   margin: 0;
+  
+  overflow-x: scroll;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+textarea, input {
+  background-color: $primary-color-1;
+  color: $primary-color-3;
+
+  border: 0.2rem $primary-color-1 solid;
+
+  padding: 0;
+  border-radius: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+textarea::placeholder, input::placeholder,
+textarea::-moz-placeholder, input::-moz-placeholder {
+  color: $primary-color-2;
+}
+
+textarea:hover, input:hover {
+  border-color: $primary-color-2;
+}
+
+textarea {
+  resize: none;
 }

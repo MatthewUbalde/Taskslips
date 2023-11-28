@@ -1,0 +1,36 @@
+@import '../../colors.scss';
+
+.drag-handle {
+  position: absolute;
+  bottom: 0.25rem;
+  right: 0.25rem;
+  
+  border: none;
+  border-radius: 8px;
+  
+  width: 2.5rem;
+  height: 2.5rem;
+
+  opacity: 0;
+}
+
+.drag-handle-light {
+  background-color: $primary-color-1;
+  color: $primary-color-3;
+}
+
+.drag-handle-dark {
+  background-color: $primary-color-3;
+  color: $primary-color-1;
+}
+
+.card:hover,
+.folder:hover {
+  .drag-handle {
+    opacity: 0.2;
+  }
+
+  .drag-handle:hover {
+    opacity: 1;
+  }
+}

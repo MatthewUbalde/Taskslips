@@ -5,17 +5,26 @@ import { CSS } from "@dnd-kit/utilities";
 import dayjs from "dayjs";
 
 import { CardData } from "../../lib/types";
+import DragHandle from "../DragHandle/DragHandle";
 import "./Card.scss";
 
 const onSubmit = () => {
   // Save it?
-}
+};
 
-const CardTask = ({ id, description, date_modified, progression, importance, is_optional }: CardData) => {
-  const [textfield, setTextfield] = useState(description ?? '');
-  const { attributes, listeners, setActivatorNodeRef, setNodeRef, transform } = useSortable ({
-    id: id,
-  });
+const CardTask = ({
+  id,
+  description,
+  date_modified,
+  progression,
+  importance,
+  is_optional,
+}: CardData) => {
+  const [textfield, setTextfield] = useState(description ?? "");
+  const { attributes, listeners, setActivatorNodeRef, setNodeRef, transform } =
+    useSortable({
+      id: id,
+    });
 
   const style = {
     transform: CSS.Translate.toString(transform),
@@ -25,13 +34,13 @@ const CardTask = ({ id, description, date_modified, progression, importance, is_
     event.stopPropagation();
     // event.preventDefault();
     setTextfield(event.target.value);
-  }
+  };
 
   return (
     <div
       ref={setNodeRef}
       style={style}
-      className={`card card-${is_optional ? 'optional' : ''}`}
+      className={`card card-${is_optional ? "optional" : ""}`}
       id={id.toString()}
       {...attributes}
     >
@@ -43,15 +52,16 @@ const CardTask = ({ id, description, date_modified, progression, importance, is_
           name="card-field"
           value={textfield}
           onChange={handleChange}
-          wrap='soft'
+          wrap="soft"
+          maxLength={200}
         />
         <p className="card-date-modified small-text">
-          {`Created: ${dayjs(date_modified).format("MMM. DD, YYYY")}`}
+          {`${dayjs(date_modified).format("MMM. DD, YYYY hh:mm A")}`}
         </p>
       </form>
-      <button className={'drag-handle'} ref={setActivatorNodeRef} {...listeners}>
+      <DragHandle color="dark" dnd_ref={setActivatorNodeRef} listeners={listeners}>
         Move
-      </button>
+      </DragHandle>
     </div>
   );
 };

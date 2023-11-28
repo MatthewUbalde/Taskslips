@@ -1,8 +1,10 @@
 import { useState } from "react";
-import {v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4 } from "uuid";
 import {
   DndContext,
   DragEndEvent,
+  DragOverlay,
+  DragStartEvent,
   closestCorners,
   useDroppable,
 } from "@dnd-kit/core";
@@ -15,16 +17,22 @@ import {
 import { CardData, FolderData } from "../../lib/types";
 import CardTask from "../Card/Card";
 import FolderTitle from "./FolderTitle";
+// import Button from "../Button/Button";
+import CardAdd from "../Card/CardAdd";
 import "./Folder.scss";
 
 const Folder = ({ id, title, cards }: FolderData) => {
   const [currentCards, setCurrentCards] = useState(cards);
+  const [activeId, setActiveId] = useState(null);
   const { setNodeRef } = useDroppable({
     id: id,
   });
   
-  
-  const onDragEnd = ({ active, over }: DragEndEvent) => {
+  const handleDragStart = (event: DragStartEvent) => {
+    setActiveId(event.active.id);
+  }
+
+  const handleDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id === over?.id) return;
     setCurrentCards((value) => {
       if (value === undefined) return value;
@@ -33,8 +41,11 @@ const Folder = ({ id, title, cards }: FolderData) => {
       const newIndex = value.findIndex((card) => card.id === over?.id);
       return arrayMove(value, oldIndex, newIndex);
     });
+
+    setActiveId(null);
   };
-  
+
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (currentCards === undefined) return;
@@ -44,32 +55,42 @@ const Folder = ({ id, title, cards }: FolderData) => {
       is_optional: false,
     };
     setCurrentCards([...currentCards, newCardData]);
-  }
+  };
 
   return (
     <div className="folder">
-      <FolderTitle title={title} maxLength={20} onClickAddCard={handleClick}/>
-      <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
-        {currentCards !== undefined &&
-        <div className="folder-container" ref={setNodeRef}>
-          <SortableContext
-            items={currentCards}
-            strategy={verticalListSortingStrategy}
-          >
-            {currentCards.map((card) => (
-              <CardTask
-                id={card.id}
-                key={card.id}
-                description={card.description}
-                date_modified={card.date_modified}
-                progression={card.progression}
-                importance={card.importance}
-                is_optional={card.is_optional}
-              />
-            ))}
-          </SortableContext>
-        </div>}
+      <FolderTitle title={title} maxLength={20} />
+      <DndContext collisionDetection={closestCorners} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+        {currentCards !== undefined && (
+          <div className="folder-container" ref={setNodeRef}>
+            <SortableContext
+              items={currentCards}
+              strategy={verticalListSortingStrategy}
+            >
+              {currentCards.map((card) => (
+                <CardTask
+                  id={card.id}
+                  key={card.id}
+                  description={card.description}
+                  date_modified={card.date_modified}
+                  progression={card.progression}
+                  importance={card.importance}
+                  is_optional={card.is_optional}
+                />
+              ))}
+            </SortableContext>
+            <DragOverlay>
+              {activeId ? (
+                <CardTask id='temp' date_modified={0} is_optional={false}/>
+              ) : null}
+            </DragOverlay>
+            <CardAdd onClick={handleClick}/>
+          </div>
+        )}
       </DndContext>
+      {/* <Button color="light" onClick={handleClick}>
+        Add Card
+      </Button> */}
     </div>
   );
 };

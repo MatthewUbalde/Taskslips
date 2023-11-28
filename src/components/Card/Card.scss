@@ -39,48 +39,32 @@
     text-align: left;
 
     textarea {
-      background-color: $primary-color-1;
-      color: $primary-color-3;
-
       font-size: 1rem;
-      resize: none;
 
       height: 100%;
       width: 100%;
-
-      border: none;
-      border-radius: 8px;
     }
 
     .card-date-modified {
       color: $primary-color-3;
       margin: 0;
+      visibility: hidden;
     }
   }
 }
 
-.drag-handle {
-  width: 2.5rem;
-  height: 2.5rem;
-
-  position: absolute;
-  top: 0.25rem;
-  left: 0.25rem;
-
-  background-color: $primary-color-3;
-
-  border: none;
-  border-radius: 8px;
-
-  opacity: 0;
+.folder:hover {
+  .card-date-modified {
+    visibility: visible;
+  }
 }
 
-.card:hover {
-  .drag-handle {
-    opacity: 0.2;
-  }
+.card-add {
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
 
-  .drag-handle:hover {
-    opacity: 1;
-  }
+  background-color: $primary-color-1;
+  color: $primary-color-3;
+  border: none;
 }
