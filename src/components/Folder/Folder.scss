@@ -5,7 +5,7 @@
   flex-direction: column;
   
   width: auto;
-  //height: calc(15vh + 40vh + 0.5rem + 0.5rem);
+  height: auto;//calc(15vh + 40vh + 0.5rem + 0.5rem);
 
   overflow: hidden;
 
@@ -77,7 +77,8 @@
 .folder:hover {
   // height: calc(15vh + 80vh + 1.5rem + 0.5rem);
   .folder-container {
-    height: calc(80vh + 1.5rem);
+    height: 100%;
+    //height: calc(80vh + 1.5rem);
 
     grid-template-columns: 1fr 1fr;
 
