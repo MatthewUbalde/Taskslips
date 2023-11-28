@@ -5,7 +5,7 @@ import "./DragHandle.scss"
 interface Props {
   color?: 'light' | 'dark'
   dnd_ref?: LegacyRef<HTMLButtonElement>
-  listeners: SyntheticListenerMap | undefined
+  listeners?: SyntheticListenerMap | undefined
 }
 
 function DragHandle({color, dnd_ref, listeners}: Props) {
