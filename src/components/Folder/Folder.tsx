@@ -24,7 +24,7 @@ import DragHandle from "../DragHandle/DragHandle";
 
 const Folder = ({ id, title, cards }: FolderData) => {
   const [currentCards, setCurrentCards] = useState(cards);
-  const [activeId, setActiveId] = useState(null);
+  const [activeId, setActiveId] = useState<string | number>(0);
   const { setNodeRef } = useDroppable({
     id: id,
   });
@@ -43,7 +43,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
       return arrayMove(value, oldIndex, newIndex);
     });
 
-    setActiveId(null);
+    setActiveId(0);
   };
 
 
