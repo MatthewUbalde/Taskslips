@@ -6,7 +6,7 @@ interface Props {
 
 export default function CardAdd({onClick}: Props) {
   return (
-    <button className="card card-add" onClick={onClick}>
+    <button className="card card-temp" onClick={onClick}>
       Add Card
     </button>
   );

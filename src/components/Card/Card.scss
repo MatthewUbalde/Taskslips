@@ -5,14 +5,16 @@
   display: flex;
 
   background-color: $primary-color-1;
+  color: $primary-color-3;
   
-  width: 40vw;
+  width: auto;
   height: 20vh;
   min-height: 4rem;
   border-radius: 8px;
 
   overflow: hidden;
   
+  flex-shrink: 0;
   .card-optional {
     background-color: $primary-color-3;
   }
@@ -59,12 +61,12 @@
   }
 }
 
-.card-add {
+.card-temp {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+}
 
-  background-color: $primary-color-1;
-  color: $primary-color-3;
+.card-temp button {
   border: none;
 }

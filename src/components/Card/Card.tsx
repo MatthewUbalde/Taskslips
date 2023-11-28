@@ -59,9 +59,7 @@ const CardTask = ({
           {`${dayjs(date_modified).format("MMM. DD, YYYY hh:mm A")}`}
         </p>
       </form>
-      <DragHandle color="dark" dnd_ref={setActivatorNodeRef} listeners={listeners}>
-        Move
-      </DragHandle>
+      <DragHandle color="dark" dnd_ref={setActivatorNodeRef} listeners={listeners}/>
     </div>
   );
 };

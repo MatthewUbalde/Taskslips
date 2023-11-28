@@ -20,6 +20,7 @@ import FolderTitle from "./FolderTitle";
 // import Button from "../Button/Button";
 import CardAdd from "../Card/CardAdd";
 import "./Folder.scss";
+import DragHandle from "../DragHandle/DragHandle";
 
 const Folder = ({ id, title, cards }: FolderData) => {
   const [currentCards, setCurrentCards] = useState(cards);
@@ -81,7 +82,10 @@ const Folder = ({ id, title, cards }: FolderData) => {
             </SortableContext>
             <DragOverlay>
               {activeId ? (
-                <CardTask id='temp' date_modified={0} is_optional={false}/>
+                <div className="card card-temp">
+                  Move!
+                  <DragHandle color="dark"/>
+                </div>
               ) : null}
             </DragOverlay>
             <CardAdd onClick={handleClick}/>
