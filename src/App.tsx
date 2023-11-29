@@ -6,7 +6,7 @@ function App() {
   return (
     <div className='field'>
       <div>
-        <Binder/>
+        <Binder id='test' folders={[]}/>
       </div>
       <MenuBar/>
     </div>

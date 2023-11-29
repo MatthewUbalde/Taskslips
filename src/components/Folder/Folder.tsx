@@ -48,7 +48,6 @@ const Folder = ({ id, title, cards }: FolderData) => {
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    if (currentCards === undefined) return;
     const newCardData: CardData = {
       id: uuidv4(),
       date_modified: Date.now(),
@@ -70,7 +69,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
         onDragEnd={handleDragEnd}
       >
         <div className="folder-container" ref={setNodeRef}>
-          {currentCards && currentCards.length !== 0 && (
+          {currentCards.length !== 0 && (
             <SortableContext
               items={currentCards}
               strategy={verticalListSortingStrategy}

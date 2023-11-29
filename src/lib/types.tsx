@@ -20,7 +20,7 @@ export type CardData = {
 export type FolderData = {
   id: string | number,
   title?: string,
-  cards?: Array<CardData>,
+  cards: Array<CardData>,
   // This is to possibly temporarily hold data for computation
   completed_cards?: number, 
 }
