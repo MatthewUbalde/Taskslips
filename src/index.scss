@@ -22,6 +22,14 @@ body {
   margin: 0;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
 .font-larger {
   font-size: 1.5em;
 }

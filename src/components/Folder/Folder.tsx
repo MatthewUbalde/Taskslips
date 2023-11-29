@@ -6,7 +6,6 @@ import {
   DragOverlay,
   DragStartEvent,
   closestCorners,
-  useDraggable,
   useDroppable,
 } from "@dnd-kit/core";
 import {
@@ -19,12 +18,13 @@ import { CardData, FolderData } from "../../lib/types";
 import CardTask from "../Card/Card";
 import FolderTitle from "./FolderTitle";
 import CardAdd from "../Card/CardAdd";
-import DragHandle from "../DragHandle/DragHandle";
+import ButtonsUtility from "../ButtonsUtility/ButtonsUtility";
 import "./Folder.scss";
 
 const Folder = ({ id, title, cards }: FolderData) => {
   const [currentCards, setCurrentCards] = useState(cards);
   const [activeId, setActiveId] = useState<string | number>(0);
+  const [deleteId, setDeleteId] = useSTate<string | number>(0);
   const { setNodeRef } = useDroppable({
     id: id,
   });
@@ -46,7 +46,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
     setActiveId(0);
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleAdd = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     const newCardData: CardData = {
       id: uuidv4(),
@@ -68,7 +68,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
       >
-        <div className="folder-container" ref={setNodeRef}>
+        <div className="card-container" ref={setNodeRef}>
           {currentCards.length !== 0 && (
             <SortableContext
               items={currentCards}
@@ -91,15 +91,13 @@ const Folder = ({ id, title, cards }: FolderData) => {
             {activeId ? (
               <div className="card card-temp font-large">
                 Move!
-                <DragHandle color="dark" />
               </div>
             ) : null}
           </DragOverlay>
-
-          <CardAdd onClick={handleClick} />
+          <CardAdd onClick={handleAdd} />
         </div>
       </DndContext>
-      <DragHandle color="light" />
+      <ButtonsUtility color='light' direction="row"/>
     </div>
   );
 };

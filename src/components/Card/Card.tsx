@@ -5,7 +5,7 @@ import { CSS } from "@dnd-kit/utilities";
 import dayjs from "dayjs";
 
 import { CardData } from "../../lib/types";
-import DragHandle from "../DragHandle/DragHandle";
+import ButtonsUtility from "../ButtonsUtility/ButtonsUtility";
 import "./Card.scss";
 
 const onSubmit = () => {
@@ -60,7 +60,7 @@ const Card = ({
           {`${dayjs(date_modified).format("MMM. DD, YYYY hh:mm A")}`}
         </p>
       </form>
-      <DragHandle color="dark" dnd_ref={setActivatorNodeRef} listeners={listeners}/>
+      <ButtonsUtility color="dark" direction="column" dndRef={setActivatorNodeRef} dndListeners={listeners}/>
     </div>
   );
 };
