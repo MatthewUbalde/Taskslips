@@ -24,7 +24,6 @@ import "./Folder.scss";
 const Folder = ({ id, title, cards }: FolderData) => {
   const [currentCards, setCurrentCards] = useState(cards);
   const [activeId, setActiveId] = useState<string | number>(0);
-  const [deleteId, setDeleteId] = useSTate<string | number>(0);
   const { setNodeRef } = useDroppable({
     id: id,
   });
@@ -36,8 +35,6 @@ const Folder = ({ id, title, cards }: FolderData) => {
   const handleDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id === over?.id) return;
     setCurrentCards((value) => {
-      if (value === undefined) return value;
-
       const oldIndex = value.findIndex((card) => card.id === active.id);
       const newIndex = value.findIndex((card) => card.id === over?.id);
       return arrayMove(value, oldIndex, newIndex);
@@ -89,15 +86,13 @@ const Folder = ({ id, title, cards }: FolderData) => {
           )}
           <DragOverlay>
             {activeId ? (
-              <div className="card card-temp font-large">
-                Move!
-              </div>
+              <div className="card card-temp font-large">Move!</div>
             ) : null}
           </DragOverlay>
           <CardAdd onClick={handleAdd} />
         </div>
       </DndContext>
-      <ButtonsUtility color='light' direction="row"/>
+      <ButtonsUtility color="light" direction="row" />
     </div>
   );
 };
