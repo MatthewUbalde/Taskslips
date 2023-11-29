@@ -48,6 +48,7 @@ const CardTask = ({
       <div className={`label label-${progression}`} />
       <form onSubmit={onSubmit}>
         <textarea
+          className="font-small"
           placeholder="Insert field"
           name="card-field"
           value={textfield}
@@ -55,7 +56,7 @@ const CardTask = ({
           wrap="soft"
           maxLength={200}
         />
-        <p className="card-date-modified small-text">
+        <p className="card-date-modified font-smaller">
           {`${dayjs(date_modified).format("MMM. DD, YYYY hh:mm A")}`}
         </p>
       </form>

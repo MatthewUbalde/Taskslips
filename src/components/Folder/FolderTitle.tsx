@@ -17,14 +17,14 @@ const FolderTitle = ({ title, maxLength, cardsAmount }: Prop) => {
   return (
     <form className="folder-title">
       <input
-        className="folder-title-element folder-title-field"
+        className="folder-title-element folder-title-field font-larger"
         placeholder="Title"
         title="title"
         value={folderTitle}
         onChange={handleChange}
         maxLength={maxLength}
       />
-      <div className="folder-title-element folder-card-amount">
+      <div className="folder-title-element folder-card-amount font-larger">
         {cardsAmount != 0 ? `0/${cardsAmount}` : ""}
       </div>
     </form>

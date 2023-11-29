@@ -22,8 +22,20 @@ body {
   margin: 0;
 }
 
-.small-text {
-  font-size: 0.75rem;
+.font-larger {
+  font-size: 1.5em;
+}
+.font-large {
+  font-size: 1.25em;
+}
+.font-default {
+  font-size: 1em;
+}
+.font-small {
+  font-size: 0.85em;
+}
+.font-smaller {
+  font-size: 0.7em;
 }
 
 @media (prefers-color-scheme: light) {

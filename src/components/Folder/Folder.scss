@@ -33,6 +33,7 @@
   .folder-title {
     display: flex;
     align-items: center;
+    justify-content: center;
 
     height: 5vh;
     width: 100%;
@@ -40,19 +41,14 @@
     margin-bottom: 0.5rem;
 
     background-color: $primary-color-1;
-    font-size: 1.5rem;
 
     border-radius: 8px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 
     .folder-title-element {
-      margin: 1rem;
+      margin: 0.5rem 0.25rem;
       text-align: center;
-    }
-
-    .folder-title-field {
-      font-size: 1.5rem;
     }
 
     .folder-card-amount {

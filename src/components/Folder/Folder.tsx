@@ -82,7 +82,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
             </SortableContext>
             <DragOverlay>
               {activeId ? (
-                <div className="card card-temp">
+                <div className="card card-temp font-large">
                   Move!
                   <DragHandle color="dark"/>
                 </div>

@@ -11,19 +11,18 @@ interface Props {
 
 function ProgressBar({complete, max, label, name, color}: Props) {
   const completePercentage = (complete / max) * 100;
-  const incompletePercentage = 100 - completePercentage;
 
   return (
     <div className="progression-status">
       <div className="progression-info">
         <div>
-          <span className="label">{label}:</span>
-          <span className="name">{name}</span>
+          <span className="font-default">{label}:</span>
+          <span className="font-large">{name}</span>
         </div>
-        <div className="completion">{`${complete}/${max}`}</div>
+        <div className="font-default">{`${complete}/${max}`}</div>
       </div>
 
-      <div className='progress-bar'>
+      <div className='progress-bar font-default'>
         <div className={`progress-bar-complete progress-${color}`} style={{width: `${completePercentage}%`}}>
           <span className='progress-complete-text'>{`${completePercentage}%`}</span>
         </div>
