@@ -14,7 +14,7 @@
   margin-bottom: 0.25rem;
   
   .label {
-    font-size:1.25rem;
+    font-size:large;
   }
   .name {
     font-size:1.5rem;
@@ -41,17 +41,6 @@
     color: $primary-color-1;
     margin: 0 0.5rem;
   }
-  .progress-incomplete-text {
-    color: $primary-color-3;
-    
-    // This is to keep it in the right hand side
-    position: absolute;
-    top: 0;
-    right: 0;
-    
-    margin: 0 0.5rem;
-  }
-
   .progress-bar-complete {
     height: 100%;
     border-radius: 8px;

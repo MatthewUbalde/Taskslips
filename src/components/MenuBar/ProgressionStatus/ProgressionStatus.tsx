@@ -20,13 +20,13 @@ function ProgressBar({complete, max, label, name, color}: Props) {
           <span className="label">{label}:</span>
           <span className="name">{name}</span>
         </div>
-        <span className="completion">{`${complete}/${max}`}</span>
+        <div className="completion">{`${complete}/${max}`}</div>
       </div>
+
       <div className='progress-bar'>
         <div className={`progress-bar-complete progress-${color}`} style={{width: `${completePercentage}%`}}>
           <span className='progress-complete-text'>{`${completePercentage}%`}</span>
         </div>
-        <span className='progress-incomplete-text'>{`${incompletePercentage}%`}</span>
       </div>
     </div>
   )
