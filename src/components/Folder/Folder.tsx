@@ -28,10 +28,10 @@ const Folder = ({ id, title, cards }: FolderData) => {
   const { setNodeRef } = useDroppable({
     id: id,
   });
-  
+
   const handleDragStart = (event: DragStartEvent) => {
     setActiveId(event.active.id);
-  }
+  };
 
   const handleDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id === over?.id) return;
@@ -46,7 +46,6 @@ const Folder = ({ id, title, cards }: FolderData) => {
     setActiveId(0);
   };
 
-
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (currentCards === undefined) return;
@@ -60,10 +59,18 @@ const Folder = ({ id, title, cards }: FolderData) => {
 
   return (
     <div className="folder">
-      <FolderTitle title={title} maxLength={20} cardsAmount={currentCards?.length}/>
-      <DndContext collisionDetection={closestCorners} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-        {currentCards !== undefined && (
-          <div className="folder-container" ref={setNodeRef}>
+      <FolderTitle
+        title={title}
+        maxLength={20}
+        cardsAmount={currentCards?.length}
+      />
+      <DndContext
+        collisionDetection={closestCorners}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+      >
+        <div className="folder-container" ref={setNodeRef}>
+          {currentCards && currentCards.length !== 0 && (
             <SortableContext
               items={currentCards}
               strategy={verticalListSortingStrategy}
@@ -80,19 +87,20 @@ const Folder = ({ id, title, cards }: FolderData) => {
                 />
               ))}
             </SortableContext>
-            <DragOverlay>
-              {activeId ? (
-                <div className="card card-temp font-large">
-                  Move!
-                  <DragHandle color="dark"/>
-                </div>
-              ) : null}
-            </DragOverlay>
-            <CardAdd onClick={handleClick}/>
-          </div>
-        )}
+          )}
+          <DragOverlay>
+            {activeId ? (
+              <div className="card card-temp font-large">
+                Move!
+                <DragHandle color="dark" />
+              </div>
+            ) : null}
+          </DragOverlay>
+
+          <CardAdd onClick={handleClick} />
+        </div>
       </DndContext>
-      <DragHandle color="light"/>
+      <DragHandle color="light" />
     </div>
   );
 };
