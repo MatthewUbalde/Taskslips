@@ -12,7 +12,7 @@ const onSubmit = () => {
   // Save it?
 };
 
-const CardTask = ({
+const Card = ({
   id,
   description,
   date_modified,
@@ -65,4 +65,4 @@ const CardTask = ({
   );
 };
 
-export default CardTask;
+export default Card;
