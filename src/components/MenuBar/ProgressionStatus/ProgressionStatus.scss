@@ -17,11 +17,11 @@
     font-size:large;
   }
   .name {
-    font-size:1.5rem;
+    font-size: xx-large;
   }
 
   .completion {
-    font-size:1.25rem;
+    font-size:large;
   }
 }
 
@@ -31,11 +31,12 @@
   width: 100%;
   background-color: $primary-color-2;
   
-  font-size: 1.25rem;
+  font-size: large;
 
   border-radius: 8px;
   
   overflow: hidden;
+  text-align: right;
   
   .progress-complete-text {
     color: $primary-color-1;
@@ -49,6 +50,9 @@
     text-align: right;
   }
 
+  .progress-undefined {
+    background-color: $primary-color-3;
+  }
   .progress-accent-1 {
     background-color: $accent-color-1;
   }
