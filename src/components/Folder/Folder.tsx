@@ -17,10 +17,9 @@ import {
 import { CardData, FolderData } from "../../lib/types";
 import CardTask from "../Card/Card";
 import FolderTitle from "./FolderTitle";
-// import Button from "../Button/Button";
 import CardAdd from "../Card/CardAdd";
-import "./Folder.scss";
 import DragHandle from "../DragHandle/DragHandle";
+import "./Folder.scss";
 
 const Folder = ({ id, title, cards }: FolderData) => {
   const [currentCards, setCurrentCards] = useState(cards);
@@ -60,7 +59,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
 
   return (
     <div className="folder">
-      <FolderTitle title={title} maxLength={20} />
+      <FolderTitle title={title} maxLength={20} cardsAmount={currentCards?.length}/>
       <DndContext collisionDetection={closestCorners} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
         {currentCards !== undefined && (
           <div className="folder-container" ref={setNodeRef}>
@@ -92,9 +91,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
           </div>
         )}
       </DndContext>
-      {/* <Button color="light" onClick={handleClick}>
-        Add Card
-      </Button> */}
+      <DragHandle color="light"/>
     </div>
   );
 };

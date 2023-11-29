@@ -3,11 +3,11 @@ import { useState } from "react";
 interface Prop {
   title?: string;
   maxLength?: number;
-  //onClickAddCard: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  cardsAmount?: number;
 }
 
-const FolderTitle = ({ title, maxLength }: Prop) => {
-  const [folderTitle, setFolderTitle] = useState(title ?? '');
+const FolderTitle = ({ title, maxLength, cardsAmount }: Prop) => {
+  const [folderTitle, setFolderTitle] = useState(title ?? "");
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     event.preventDefault();
@@ -15,19 +15,19 @@ const FolderTitle = ({ title, maxLength }: Prop) => {
   }
 
   return (
-    <div className="folder-title">
-      <form>
-        <input
-          className="folder-title-field"
-          placeholder="Title"
-          title="title"
-          value={folderTitle}
-          onChange={handleChange}
-          maxLength={maxLength}
-        />
-      </form>
-      
-    </div>
+    <form className="folder-title">
+      <input
+        className="folder-title-element folder-title-field"
+        placeholder="Title"
+        title="title"
+        value={folderTitle}
+        onChange={handleChange}
+        maxLength={maxLength}
+      />
+      <div className="folder-title-element folder-card-amount">
+        {cardsAmount != 0 ? `0/${cardsAmount}` : ""}
+      </div>
+    </form>
   );
 };
 
