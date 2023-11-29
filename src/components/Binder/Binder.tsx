@@ -28,6 +28,7 @@ const Binder = ({ id, folders }: BinderData) => {
 
   return (
     <div id={id.toString()} className="binder">
+      <button className="folder-add-btn font-large" onClick={handleClick}>+</button>
       <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
         <div className="binder-container">
           {currentFolders.length !== 0 && (
@@ -45,7 +46,6 @@ const Binder = ({ id, folders }: BinderData) => {
               ))}
             </SortableContext>
           )}
-          <button onClick={handleClick}>Add Folder</button>
         </div>
       </DndContext>
     </div>
