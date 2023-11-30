@@ -12,9 +12,9 @@ const onSubmit = () => {
   // Save it?
 };
 
-interface Props {
-  deleteCard: (id: string | number) => void
-}
+// interface Props {
+//   deleteCard: (id: string | number) => void
+// }
 
 const Card = (
   {
@@ -72,7 +72,7 @@ const Card = (
         direction="column"
         dndRef={setActivatorNodeRef}
         dndListeners={listeners}
-        handleDelete={() => {if (deleteCard) deleteCard(id); console.log(deleteCard);}}
+        handleDelete={() => {if (deleteCard) deleteCard(id)}}
       />
     </div>
   );

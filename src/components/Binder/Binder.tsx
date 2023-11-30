@@ -16,15 +16,28 @@ const onDragEnd = (event: DragEndEvent) => {
 
 const Binder = ({ id, folders }: BinderData) => {
   const [currentFolders, setCurrentFolders] = useState(folders);
+  
+  const deleteFolder = (id: string | number) => {
+    setCurrentFolders((value) => {
+      // How do I find the id?
+      // const deleteIndex = value.findIndex((card) => card.id === id);
+      // return value.splice(deleteIndex, 1);
+      return value.filter((folder) => (folder.id !== id))
+    });
+
+    console
+  };
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     const newFolderData: FolderData = {
       id: uuidv4(),
       cards: [],
+      deleteFolder: deleteFolder
     };
     setCurrentFolders([...currentFolders, newFolderData]);
   };
+
 
   return (
     <div id={id.toString()} className="binder">
@@ -42,6 +55,7 @@ const Binder = ({ id, folders }: BinderData) => {
                   key={folder.id}
                   cards={folder.cards}
                   completed_cards={folder.completed_cards}
+                  deleteFolder={folder.deleteFolder}
                 />
               ))}
             </SortableContext>

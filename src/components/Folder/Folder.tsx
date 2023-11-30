@@ -21,7 +21,7 @@ import CardAdd from "../Card/CardAdd";
 import ButtonsUtility from "../ButtonsUtility/ButtonsUtility";
 import "./Folder.scss";
 
-const Folder = ({ id, title, cards }: FolderData) => {
+const Folder = ({ id, title, cards, deleteFolder }: FolderData) => {
   const [currentCards, setCurrentCards] = useState(cards);
   const [activeId, setActiveId] = useState<string | number>(0);
   const { setNodeRef } = useDroppable({
@@ -45,23 +45,26 @@ const Folder = ({ id, title, cards }: FolderData) => {
     setActiveId(0);
   };
 
+  const deleteCard = (id: string | number) => {
+    setCurrentCards((value) => {
+      // How do I find the id?
+      // const deleteIndex = value.findIndex((card) => card.id === id);
+      // return value.splice(deleteIndex, 1);
+      return value.filter((card) => (card.id !== id))
+    });
+  };
+
   const handleAdd = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     const newCardData: CardData = {
       id: uuidv4(),
       date_modified: Date.now(),
       is_optional: false,
+      deleteCard: deleteCard
     };
     setCurrentCards([...currentCards, newCardData]);
   };
 
-  const deleteCard = (id: string | number) => {
-    setCurrentCards((value) => {
-      // How do I find the id?
-      // const deleteIndex = value.findIndex((card) => card.id === id);
-      return value.filter((card) => card.id === id);
-    });
-  };
 
   return (
     <div className="folder">
@@ -90,7 +93,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
                   progression={card.progression}
                   importance={card.importance}
                   is_optional={card.is_optional}
-                  deleteCard={deleteCard}
+                  deleteCard={card.deleteCard}
                 />
               ))}
             </SortableContext>
@@ -103,7 +106,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
           <CardAdd onClick={handleAdd} />
         </div>
       </DndContext>
-      <ButtonsUtility color="light" direction="row" />
+      <ButtonsUtility color="light" direction="row" handleDelete={() => {if (deleteFolder) deleteFolder(id)}}/>
     </div>
   );
 };
