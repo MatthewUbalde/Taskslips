@@ -1,0 +1,52 @@
+@import "../../colors.scss";
+
+.buttons-utility-container {
+  display: flex;
+  gap: 0.5rem;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.5rem;
+}
+
+.buttons-utility-container-light {
+  background-color: $primary-color-1;
+  // Opposite to what I have set for the container!
+  .button-utility-light {
+    background-color: $primary-color-3;
+    color: $primary-color-1;
+    
+  }
+}
+
+.buttons-utility-container-dark {
+  background-color: $primary-color-3;
+  // Opposite to what I have set for the container!
+  .button-utility-dark {
+    background-color: $primary-color-1;
+    color: $primary-color-3;
+  }
+}
+
+.button-utility {
+  width: auto;
+  height: 5vh;
+  min-height: 2rem;
+
+  padding: 0.5rem;
+  border: none;
+  border-radius: 8px;
+
+  opacity: 0;
+}
+
+.folder:hover {
+  .button-utility {
+    opacity: 0.2;
+  }
+
+  .button-utility:hover {
+    opacity: 1;
+  }
+}

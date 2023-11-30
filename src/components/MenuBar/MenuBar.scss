@@ -1,0 +1,30 @@
+@import '../../colors.scss';
+
+.menubar {
+  position: fixed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+
+  width: 100%;
+  height: auto;
+
+  .tab-container {
+    display: flex;
+    flex-direction: row;
+    
+    align-items: end;
+    justify-content: end;
+  
+    height: 25%;
+  }
+  
+  .menu-container {
+    background-color: $primary-color-1;
+    height: 75%;
+
+    padding: 0.5rem 1rem;
+  }
+}

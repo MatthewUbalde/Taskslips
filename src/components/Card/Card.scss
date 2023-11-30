@@ -1,0 +1,81 @@
+@import "../../colors.scss";
+
+.card {
+  position: relative;
+  display: flex;
+
+  background-color: $primary-color-1;
+  color: $primary-color-3;
+
+  width: auto;
+  height: 20vh;
+  min-height: 4rem;
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  flex-shrink: 0;
+  .card-optional {
+    background-color: $primary-color-3;
+  }
+
+  .label {
+    width: 5%;
+  }
+  .label-undefined {
+    background-color: $primary-color-2;
+  }
+  .label-working {
+    background-color: $accent-color-4;
+  }
+  .label-nigh {
+    background-color: $accent-color-1;
+  }
+  .label-completed {
+    background-color: $accent-color-3;
+  }
+
+  .label-needed {
+    background-color: $accent-color-5;
+  }
+  .label-important {
+    background-color: $accent-color-2;
+  }
+  .label-crisis {
+    background-color: $accent-color-6;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    margin: 0.5rem;
+
+    text-align: left;
+
+    textarea {
+      height: 100%;
+      width: 100%;
+    }
+
+    .card-date-modified {
+      color: $primary-color-3;
+      margin: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+.folder:hover {
+  .card-date-modified {
+    visibility: visible;
+  }
+}
+
+.card-temp {
+  justify-content: center;
+  align-items: center;
+  border: none;
+}

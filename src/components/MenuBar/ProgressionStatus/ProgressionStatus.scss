@@ -1,0 +1,61 @@
+@import "../../../colors.scss";
+
+.progression-status {
+  display: flex;
+  flex-direction: column;
+}
+
+.progression-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+
+  border-bottom: 3px solid $primary-color-2;
+  margin-bottom: 0.25rem;
+}
+
+.progress-bar {
+  position: relative; // Only for the incomplete-text
+
+  width: 100%;
+  background-color: $primary-color-2;
+
+  border-radius: 8px;
+  
+  overflow: hidden;
+  text-align: right;
+  
+  .progress-complete-text {
+    color: $primary-color-1;
+    margin: 0 0.5rem;
+  }
+  .progress-bar-complete {
+    height: 100%;
+    border-radius: 8px;
+
+    // This is to keep the complete on the right hand side of the bar
+    text-align: right;
+  }
+
+  .progress-undefined {
+    background-color: $primary-color-3;
+  }
+  .progress-accent-1 {
+    background-color: $accent-color-1;
+  }
+  .progress-accent-2 {
+    background-color: $accent-color-2;
+  }
+  .progress-accent-3 {
+    background-color: $accent-color-3;
+  }
+  .progress-accent-4 {
+    background-color: $accent-color-4;
+  }
+  .progress-accent-5 {
+    background-color: $accent-color-5;
+  }
+  .progress-accent-6 {
+    background-color: $accent-color-6;
+  }
+}

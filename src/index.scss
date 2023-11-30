@@ -1,0 +1,72 @@
+@import './colors.scss';
+
+:root {
+  font-family: 'Josefin Sans', Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+
+  color: $primary-color-3;
+  background-color: $primary-color-3;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+textarea, input {
+  background-color: $primary-color-1;
+  color: $primary-color-3;
+
+  border: 3px $primary-color-1 solid;
+
+  padding: 0;
+  border-radius: 8px;
+}
+
+textarea::placeholder, input::placeholder,
+textarea::-moz-placeholder, input::-moz-placeholder {
+  color: $primary-color-2;
+}
+
+textarea:hover, input:hover {
+  border-color: $primary-color-2;
+}
+
+textarea {
+  resize: none;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.font-larger {
+  font-size: 1.5em;
+  font-weight: 400;
+}
+.font-large {
+  font-size: 1.2em;
+  font-weight: 400;
+}
+.font-default {
+  font-size: 1em;
+  font-weight: 300;
+}
+.font-small {
+  font-size: 0.85em;
+  font-weight: 300;
+}
+.font-smaller {
+  font-size: 0.75em;
+  font-weight: 300;
+}
