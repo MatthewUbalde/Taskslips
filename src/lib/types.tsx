@@ -14,7 +14,7 @@ export type CardData = {
   // crisis - Task needed to be completed immediately
   importance?: 'needed' | 'important' | 'crisis',
   is_optional: boolean,
-  deleteCard?: (id: string | number) => void,
+  deleteCard: (id: string | number) => void,
 }
 
 // FolderData holds these Cards for organization uses
@@ -24,7 +24,7 @@ export type FolderData = {
   cards: Array<CardData>,
   // This is to possibly temporarily hold data for computation
   completed_cards?: number,
-  deleteFolder?: (id: string | number) => void,
+  deleteFolder: (id: string | number) => void,
 }
 
 // Each project has separate Binders

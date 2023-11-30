@@ -17,7 +17,7 @@ import {
 import { CardData, FolderData } from "../../lib/types";
 import Card from "../Card/Card";
 import FolderTitle from "./FolderTitle";
-import CardAdd from "../Card/CardAdd";
+import CardBlank from "../Card/CardBlank";
 import ButtonsUtility from "../ButtonsUtility/ButtonsUtility";
 import "./Folder.scss";
 
@@ -27,9 +27,7 @@ const Folder = ({ id, title, cards, deleteFolder }: FolderData) => {
   const { setNodeRef } = useDroppable({
     id: id,
   });
-
-  // let cardSelectionRef = useRef<string | number>(0);
-
+  
   const handleDragStart = (event: DragStartEvent) => {
     setActiveId(event.active.id);
   };
@@ -47,24 +45,19 @@ const Folder = ({ id, title, cards, deleteFolder }: FolderData) => {
 
   const deleteCard = (id: string | number) => {
     setCurrentCards((value) => {
-      // How do I find the id?
-      // const deleteIndex = value.findIndex((card) => card.id === id);
-      // return value.splice(deleteIndex, 1);
-      return value.filter((card) => (card.id !== id))
+      return value.filter((card) => card.id !== id);
     });
   };
 
-  const handleAdd = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
+  const addCard = () => {
     const newCardData: CardData = {
       id: uuidv4(),
       date_modified: Date.now(),
       is_optional: false,
-      deleteCard: deleteCard
+      deleteCard: deleteCard,
     };
     setCurrentCards([...currentCards, newCardData]);
   };
-
 
   return (
     <div className="folder">
@@ -99,14 +92,22 @@ const Folder = ({ id, title, cards, deleteFolder }: FolderData) => {
             </SortableContext>
           )}
           <DragOverlay dropAnimation={null}>
-            {activeId ? (
-              <div className="card card-temp font-large">Move!</div>
-            ) : null}
+            {activeId ? <CardBlank>Move!</CardBlank> : null}
           </DragOverlay>
-          <CardAdd onClick={handleAdd} />
+          <CardBlank
+            handleClick={() => {
+              addCard()
+            }}
+          >
+            +
+          </CardBlank>
         </div>
       </DndContext>
-      <ButtonsUtility color="light" direction="row" handleDelete={() => {if (deleteFolder) deleteFolder(id)}}/>
+      <ButtonsUtility
+        color="light"
+        direction="row"
+        handleDelete={() => deleteFolder(id)}
+      />
     </div>
   );
 };

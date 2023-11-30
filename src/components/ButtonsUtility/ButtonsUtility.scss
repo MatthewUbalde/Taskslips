@@ -29,18 +29,12 @@
   }
 }
 
-.flex-row {
-  border-radius: 8px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  .button-utility {
-    width: 5rem;
-  }
-}
-
 .button-utility {
-  min-width: 2.5rem;
-  min-height: 2.5rem;
+  width: auto;
+  height: 5vh;
+  min-height: 2rem;
+
+  padding: 0.5rem;
   border: none;
   border-radius: 8px;
 

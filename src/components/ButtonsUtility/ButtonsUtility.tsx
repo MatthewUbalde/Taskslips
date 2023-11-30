@@ -22,7 +22,7 @@ function ButtonsUtility({
     <div className={`buttons-utility-container buttons-utility-container-${color} flex-${direction}`}>
       {handleDelete && (
         <button
-          className={`button-utility button-utility-${color}`}
+          className={`button-utility button-utility-${color} font-small`}
           onClick={handleDelete}
         >
           Delete
@@ -30,7 +30,7 @@ function ButtonsUtility({
       )}
       {(dndListeners || dndRef) && (
         <button
-          className={`button-utility button-utility-${color}`}
+          className={`button-utility button-utility-${color} font-small`}
           ref={dndRef}
           {...dndListeners}
         >

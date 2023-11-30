@@ -9,8 +9,8 @@
 
 
   width: 100%;
-  height: 20vh;
-  
+  height: auto;
+
   .tab-container {
     display: flex;
     flex-direction: row;
@@ -24,5 +24,7 @@
   .menu-container {
     background-color: $primary-color-1;
     height: 75%;
+
+    padding: 0.5rem 1rem;
   }
 }

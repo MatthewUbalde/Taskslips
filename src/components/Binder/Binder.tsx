@@ -16,32 +16,32 @@ const onDragEnd = (event: DragEndEvent) => {
 
 const Binder = ({ id, folders }: BinderData) => {
   const [currentFolders, setCurrentFolders] = useState(folders);
-  
+
   const deleteFolder = (id: string | number) => {
     setCurrentFolders((value) => {
       // How do I find the id?
       // const deleteIndex = value.findIndex((card) => card.id === id);
       // return value.splice(deleteIndex, 1);
-      return value.filter((folder) => (folder.id !== id))
+      return value.filter((folder) => folder.id !== id);
     });
 
-    console
+    console;
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
+  const addFolder = () => {
     const newFolderData: FolderData = {
       id: uuidv4(),
       cards: [],
-      deleteFolder: deleteFolder
+      deleteFolder: deleteFolder,
     };
     setCurrentFolders([...currentFolders, newFolderData]);
   };
 
-
   return (
     <div id={id.toString()} className="binder">
-      <button className="folder-add-btn font-large" onClick={handleClick}>+</button>
+      <button className="folder-add-btn font-large" onClick={() => addFolder()}>
+        +
+      </button>
       <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
         <div className="binder-container">
           {currentFolders.length !== 0 && (

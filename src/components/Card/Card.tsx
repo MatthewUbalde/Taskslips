@@ -8,14 +8,6 @@ import { CardData } from "../../lib/types";
 import ButtonsUtility from "../ButtonsUtility/ButtonsUtility";
 import "./Card.scss";
 
-const onSubmit = () => {
-  // Save it?
-};
-
-// interface Props {
-//   deleteCard: (id: string | number) => void
-// }
-
 const Card = (
   {
     id,
@@ -53,7 +45,7 @@ const Card = (
     >
       <div className={`label label-${importance}`} />
       <div className={`label label-${progression}`} />
-      <form onSubmit={onSubmit}>
+      <form>
         <textarea
           className="font-small"
           placeholder="Insert field"
@@ -72,7 +64,7 @@ const Card = (
         direction="column"
         dndRef={setActivatorNodeRef}
         dndListeners={listeners}
-        handleDelete={() => {if (deleteCard) deleteCard(id)}}
+        handleDelete={() => {deleteCard(id)}}
       />
     </div>
   );
