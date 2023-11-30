@@ -12,14 +12,21 @@ const onSubmit = () => {
   // Save it?
 };
 
-const Card = ({
-  id,
-  description,
-  date_modified,
-  progression,
-  importance,
-  is_optional,
-}: CardData) => {
+interface Props {
+  deleteCard: (id: string | number) => void
+}
+
+const Card = (
+  {
+    id,
+    description,
+    date_modified,
+    progression,
+    importance,
+    is_optional,
+    deleteCard
+  }: CardData
+) => {
   const [textfield, setTextfield] = useState(description ?? "");
   const { attributes, listeners, setActivatorNodeRef, setNodeRef, transform } =
     useSortable({
@@ -60,7 +67,13 @@ const Card = ({
           {`${dayjs(date_modified).format("MMM. DD, YYYY hh:mm A")}`}
         </p>
       </form>
-      <ButtonsUtility color="dark" direction="column" dndRef={setActivatorNodeRef} dndListeners={listeners}/>
+      <ButtonsUtility
+        color="dark"
+        direction="column"
+        dndRef={setActivatorNodeRef}
+        dndListeners={listeners}
+        handleDelete={() => {if (deleteCard) deleteCard(id); console.log(deleteCard);}}
+      />
     </div>
   );
 };

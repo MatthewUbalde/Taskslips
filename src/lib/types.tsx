@@ -13,7 +13,8 @@ export type CardData = {
   // important - Task that's important to be completed
   // crisis - Task needed to be completed immediately
   importance?: 'needed' | 'important' | 'crisis',
-  is_optional: boolean
+  is_optional: boolean,
+  deleteCard?: (id: string | number) => void
 }
 
 // FolderData holds these Cards for organization uses

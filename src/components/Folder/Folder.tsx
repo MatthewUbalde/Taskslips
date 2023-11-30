@@ -15,7 +15,7 @@ import {
 } from "@dnd-kit/sortable";
 
 import { CardData, FolderData } from "../../lib/types";
-import CardTask from "../Card/Card";
+import Card from "../Card/Card";
 import FolderTitle from "./FolderTitle";
 import CardAdd from "../Card/CardAdd";
 import ButtonsUtility from "../ButtonsUtility/ButtonsUtility";
@@ -27,6 +27,8 @@ const Folder = ({ id, title, cards }: FolderData) => {
   const { setNodeRef } = useDroppable({
     id: id,
   });
+
+  // let cardSelectionRef = useRef<string | number>(0);
 
   const handleDragStart = (event: DragStartEvent) => {
     setActiveId(event.active.id);
@@ -53,6 +55,14 @@ const Folder = ({ id, title, cards }: FolderData) => {
     setCurrentCards([...currentCards, newCardData]);
   };
 
+  const deleteCard = (id: string | number) => {
+    setCurrentCards((value) => {
+      // How do I find the id?
+      // const deleteIndex = value.findIndex((card) => card.id === id);
+      return value.filter((card) => card.id === id);
+    });
+  };
+
   return (
     <div className="folder">
       <FolderTitle
@@ -72,7 +82,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
               strategy={verticalListSortingStrategy}
             >
               {currentCards.map((card) => (
-                <CardTask
+                <Card
                   id={card.id}
                   key={card.id}
                   description={card.description}
@@ -80,6 +90,7 @@ const Folder = ({ id, title, cards }: FolderData) => {
                   progression={card.progression}
                   importance={card.importance}
                   is_optional={card.is_optional}
+                  deleteCard={deleteCard}
                 />
               ))}
             </SortableContext>
