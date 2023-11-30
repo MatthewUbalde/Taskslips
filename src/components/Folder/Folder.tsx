@@ -98,7 +98,7 @@ const Folder = ({ id, title, cards, deleteFolder }: FolderData) => {
               ))}
             </SortableContext>
           )}
-          <DragOverlay>
+          <DragOverlay dropAnimation={null}>
             {activeId ? (
               <div className="card card-temp font-large">Move!</div>
             ) : null}
