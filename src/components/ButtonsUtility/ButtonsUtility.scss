@@ -1,4 +1,4 @@
-@import '../../colors.scss';
+@import "../../colors.scss";
 
 .buttons-utility-container {
   display: flex;
@@ -6,28 +6,47 @@
 
   align-items: center;
   justify-content: center;
+
+  padding: 0.5rem;
 }
 
-.button-utility {  
+.buttons-utility-container-light {
+  background-color: $primary-color-1;
+  // Opposite to what I have set for the container!
+  .button-utility-light {
+    background-color: $primary-color-3;
+    color: $primary-color-1;
+    
+  }
+}
+
+.buttons-utility-container-dark {
+  background-color: $primary-color-3;
+  // Opposite to what I have set for the container!
+  .button-utility-dark {
+    background-color: $primary-color-1;
+    color: $primary-color-3;
+  }
+}
+
+.flex-row {
+  border-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  .button-utility {
+    width: 5rem;
+  }
+}
+
+.button-utility {
   min-width: 2.5rem;
   min-height: 2.5rem;
   border: none;
   border-radius: 8px;
-  
+
   opacity: 0;
 }
 
-.button-utility-light {
-  background-color: $primary-color-1;
-  color: $primary-color-3;
-}
-
-.button-utility-dark {
-  background-color: $primary-color-3;
-  color: $primary-color-1;
-}
-
-.card:hover,
 .folder:hover {
   .button-utility {
     opacity: 0.2;

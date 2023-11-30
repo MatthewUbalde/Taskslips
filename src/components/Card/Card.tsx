@@ -68,7 +68,7 @@ const Card = (
         </p>
       </form>
       <ButtonsUtility
-        color="dark"
+        color="light"
         direction="column"
         dndRef={setActivatorNodeRef}
         dndListeners={listeners}

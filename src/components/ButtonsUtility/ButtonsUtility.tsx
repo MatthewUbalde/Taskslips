@@ -19,7 +19,7 @@ function ButtonsUtility({
   dndListeners,
 }: Props) {
   return (
-    <div className={`buttons-utility-container flex-${direction}`}>
+    <div className={`buttons-utility-container buttons-utility-container-${color} flex-${direction}`}>
       {handleDelete && (
         <button
           className={`button-utility button-utility-${color}`}
