@@ -12,3 +12,18 @@ $accent-color-3: #2EDAE5;
 $accent-color-4: #7845CB;
 $accent-color-5: #01D7A3;
 $accent-color-6: #FF8CD1;
+
+.color-light {
+  background-color: $primary-color-1;
+  color: $primary-color-2;
+}
+
+.color-medium {
+  background-color: $primary-color-2;
+  color: $primary-color-1;
+}
+
+.color-dark {
+  background-color: $primary-color-3;
+  color: $primary-color-1;
+}
