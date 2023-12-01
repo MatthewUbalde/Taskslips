@@ -6,10 +6,8 @@ import "./ButtonsUtility.scss";
 interface Props {
   color?: "light" | "dark";
   direction?: "row" | "column";
-  handleDelete?: (
-    event: React.MouseEvent<HTMLButtonElement>) => void;
-  handleComplete?: (
-    event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleDelete?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleComplete?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   dndListeners?: SyntheticListenerMap | undefined;
   dndRef?: LegacyRef<HTMLButtonElement>;
 }
@@ -23,15 +21,25 @@ function ButtonsUtility({
   dndListeners,
 }: Props) {
   const oppositeColor = color === "light" ? "dark" : "light";
-  
+
   return (
-    <div className={`buttons-utility-container color-${color} flex-${direction}`}>
+    <div
+      className={`buttons-utility-container color-${color} flex-${direction}`}
+    >
       {handleDelete && (
         <button
           className={`button-utility color-${oppositeColor} font-small`}
           onClick={handleDelete}
         >
           Delete
+        </button>
+      )}
+      {handleComplete && (
+        <button
+          className={`button-utility color-${oppositeColor} font-small`}
+          onClick={handleComplete}
+        >
+          Complete
         </button>
       )}
       {(dndListeners || dndRef) && (
@@ -41,14 +49,6 @@ function ButtonsUtility({
           {...dndListeners}
         >
           Move
-        </button>
-      )}
-      {handleComplete && (
-        <button
-          className={`button-utility color-${oppositeColor} font-small`}
-          onClick={handleComplete}
-        >
-          Complete
         </button>
       )}
     </div>
