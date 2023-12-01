@@ -5,14 +5,7 @@ export type CardData = {
   description?: string,
   // Had to include number due to how its methods work
   date_modified: Date | number, 
-  // working - Currently working on task
-  // nigh - Almost completed on task
-  // completed - Task completed
-  progression?: 'working' | 'nigh' | 'completed' 
-  // needed - Task needed to be completed
-  // important - Task that's important to be completed
-  // crisis - Task needed to be completed immediately
-  importance?: 'needed' | 'important' | 'crisis',
+  complete: boolean,
   is_optional: boolean,
   deleteCard: (id: string | number) => void,
 }

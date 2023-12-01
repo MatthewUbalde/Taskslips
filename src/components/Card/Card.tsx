@@ -14,13 +14,13 @@ const Card = (
     id,
     description,
     date_modified,
-    progression,
-    importance,
+    complete,
     is_optional,
     deleteCard
   }: CardData
 ) => {
   const [textfield, setTextfield] = useState(description ?? "");
+  const [completeState, setComplete] = useState(complete);
   const { attributes, listeners, setActivatorNodeRef, setNodeRef, transform } =
     useSortable({
       id: id,
@@ -44,8 +44,7 @@ const Card = (
       id={id.toString()}
       {...attributes}
     >
-      <div className={`label`} />
-      <div className={`label`} />
+      <div className={`label label-${completeState ? "complete" : "incomplete"}`}/>
       <form>
         <textarea
           className="font-small"
@@ -66,6 +65,7 @@ const Card = (
         dndRef={setActivatorNodeRef}
         dndListeners={listeners}
         handleDelete={() => {deleteCard(id)}}
+        handleComplete={() => {setComplete(!completeState)}}
       />
     </div>
   );

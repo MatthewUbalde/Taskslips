@@ -8,6 +8,8 @@ interface Props {
   direction?: "row" | "column";
   handleDelete?: (
     event: React.MouseEvent<HTMLButtonElement>) => void;
+  handleComplete?: (
+    event: React.MouseEvent<HTMLButtonElement>) => void;
   dndListeners?: SyntheticListenerMap | undefined;
   dndRef?: LegacyRef<HTMLButtonElement>;
 }
@@ -16,6 +18,7 @@ function ButtonsUtility({
   color,
   direction,
   handleDelete,
+  handleComplete,
   dndRef,
   dndListeners,
 }: Props) {
@@ -38,6 +41,14 @@ function ButtonsUtility({
           {...dndListeners}
         >
           Move
+        </button>
+      )}
+      {handleComplete && (
+        <button
+          className={`button-utility color-${oppositeColor} font-small`}
+          onClick={handleComplete}
+        >
+          Complete
         </button>
       )}
     </div>
