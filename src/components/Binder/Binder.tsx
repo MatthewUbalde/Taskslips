@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import Folder from "../Folder/Folder";
 import { FolderData, BinderData } from "../../lib/types";
+import "../../colors.scss";
 import "./Binder.scss";
 import {
   SortableContext,
@@ -39,7 +40,7 @@ const Binder = ({ id, folders }: BinderData) => {
 
   return (
     <div id={id.toString()} className="binder">
-      <button className="folder-add-btn font-large" onClick={() => addFolder()}>
+      <button className="folder-add-btn font-large color-light" onClick={() => addFolder()}>
         +
       </button>
       <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>

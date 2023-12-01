@@ -7,7 +7,7 @@ interface Props {
 
 function CardBlank({ children, handleClick }: Props) {
   return (
-    <button className="card card-temp font-large" onClick={handleClick}>
+    <button className="card color-light card-temp font-large" onClick={handleClick}>
       {children}
     </button>
   );

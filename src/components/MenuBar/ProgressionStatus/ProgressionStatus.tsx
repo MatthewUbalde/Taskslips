@@ -22,7 +22,7 @@ function ProgressBar({complete, max, label, name, color}: Props) {
       </div>
 
       <div className='progress-bar font-default'>
-        <div className={`progress-bar-complete progress-${color}`} style={{width: `${completePercentage}%`}}>
+        <div className={`progress-bar-complete ${color}`} style={{width: `${completePercentage}%`}}>
           <span className='progress-complete-text'>{`${completePercentage}%`}</span>
         </div>
       </div>

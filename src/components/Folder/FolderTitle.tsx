@@ -15,7 +15,7 @@ const FolderTitle = ({ title, maxLength, cardsAmount }: Prop) => {
   }
 
   return (
-    <form className="folder-title">
+    <form className="folder-title color-light">
       <input
         className="folder-title-element folder-title-field font-larger"
         placeholder="Title"

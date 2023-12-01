@@ -4,9 +4,6 @@
   position: relative;
   display: flex;
 
-  background-color: $primary-color-1;
-  color: $primary-color-3;
-
   min-width: 10rem;
   width: 40vw;
   height: 20vh;
@@ -23,28 +20,28 @@
   .label {
     width: 5%;
   }
-  .label-undefined {
-    background-color: $primary-color-2;
-  }
-  .label-working {
-    background-color: $accent-color-4;
-  }
-  .label-nigh {
-    background-color: $accent-color-1;
-  }
-  .label-completed {
-    background-color: $accent-color-3;
-  }
+  // .label-undefined {
+  //   background-color: $primary-color-2;
+  // }
+  // .label-working {
+  //   background-color: $accent-color-4;
+  // }
+  // .label-nigh {
+  //   background-color: $accent-color-1;
+  // }
+  // .label-completed {
+  //   background-color: $accent-color-3;
+  // }
 
-  .label-needed {
-    background-color: $accent-color-5;
-  }
-  .label-important {
-    background-color: $accent-color-2;
-  }
-  .label-crisis {
-    background-color: $accent-color-6;
-  }
+  // .label-needed {
+  //   background-color: $accent-color-5;
+  // }
+  // .label-important {
+  //   background-color: $accent-color-2;
+  // }
+  // .label-crisis {
+  //   background-color: $accent-color-6;
+  // }
 
   form {
     display: flex;

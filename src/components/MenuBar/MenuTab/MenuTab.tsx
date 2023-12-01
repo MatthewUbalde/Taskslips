@@ -6,7 +6,7 @@ interface Props {
 
 function MenuTab({title}: Props) {
   return (
-    <button className="menu-tab font-default">
+    <button className="menu-tab color-medium font-default">
       {title}
     </button>
   )

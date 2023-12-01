@@ -10,25 +10,6 @@
   padding: 0.5rem;
 }
 
-.buttons-utility-container-light {
-  background-color: $primary-color-1;
-  // Opposite to what I have set for the container!
-  .button-utility-light {
-    background-color: $primary-color-3;
-    color: $primary-color-1;
-    
-  }
-}
-
-.buttons-utility-container-dark {
-  background-color: $primary-color-3;
-  // Opposite to what I have set for the container!
-  .button-utility-dark {
-    background-color: $primary-color-1;
-    color: $primary-color-3;
-  }
-}
-
 .button-utility {
   width: auto;
   height: 5vh;

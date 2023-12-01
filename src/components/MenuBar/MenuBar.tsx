@@ -1,6 +1,6 @@
-import './MenuBar.scss'
 import MenuTab from './MenuTab/MenuTab'
 import ProgressionStatus from './ProgressionStatus/ProgressionStatus'
+import './MenuBar.scss'
 
 function MenuBar() {
   return (
@@ -9,7 +9,7 @@ function MenuBar() {
         <MenuTab title="Labels"/>
         <MenuTab title="Projects"/>
       </div>
-      <div className="menu-container">
+      <div className="menu-container color-light">
         <ProgressionStatus complete={5} max={10} color='accent-1' label="Project" name="Test"/>
       </div>
     </div>

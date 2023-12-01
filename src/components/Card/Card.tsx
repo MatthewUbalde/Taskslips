@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 
 import { CardData } from "../../lib/types";
 import ButtonsUtility from "../ButtonsUtility/ButtonsUtility";
+import "../../colors.scss"
 import "./Card.scss";
 
 const Card = (
@@ -39,12 +40,12 @@ const Card = (
     <div
       ref={setNodeRef}
       style={style}
-      className={`card card-${is_optional ? "optional" : ""}`}
+      className={`card color-light card-${is_optional ? "optional" : ""}`}
       id={id.toString()}
       {...attributes}
     >
-      <div className={`label label-${importance}`} />
-      <div className={`label label-${progression}`} />
+      <div className={`label`} />
+      <div className={`label`} />
       <form>
         <textarea
           className="font-small"
