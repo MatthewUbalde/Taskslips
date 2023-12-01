@@ -53,6 +53,7 @@ const Folder = ({ id, title, cards, deleteFolder }: FolderData) => {
     const newCardData: CardData = {
       id: uuidv4(),
       date_modified: Date.now(),
+      complete: false,
       is_optional: false,
       deleteCard: deleteCard,
     };
@@ -83,8 +84,7 @@ const Folder = ({ id, title, cards, deleteFolder }: FolderData) => {
                   key={card.id}
                   description={card.description}
                   date_modified={card.date_modified}
-                  progression={card.progression}
-                  importance={card.importance}
+                  complete={card.complete}
                   is_optional={card.is_optional}
                   deleteCard={card.deleteCard}
                 />
