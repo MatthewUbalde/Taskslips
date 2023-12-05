@@ -6,19 +6,18 @@ import dayjs from "dayjs";
 
 import { CardData } from "../../lib/types";
 import ButtonsUtility from "../ButtonsUtility/ButtonsUtility";
-import "../../colors.scss"
+import "../../colors.scss";
 import "./Card.scss";
 
-const Card = (
-  {
-    id,
-    description,
-    date_modified,
-    complete,
-    is_optional,
-    deleteCard
-  }: CardData
-) => {
+const Card = ({
+  id,
+  description,
+  date_modified,
+  complete,
+  is_optional,
+  deleteCard,
+  cardUpdate,
+}: CardData) => {
   const [textfield, setTextfield] = useState(description ?? "");
   const [completeState, setComplete] = useState(complete);
   const { attributes, listeners, setActivatorNodeRef, setNodeRef, transform } =
@@ -44,29 +43,38 @@ const Card = (
       id={id.toString()}
       {...attributes}
     >
-      <div className={`label label-${completeState ? "complete" : "incomplete"}`}/>
-      <form>
-        <textarea
-          className="font-small"
-          placeholder="Insert field"
-          name="card-field"
-          value={textfield}
-          onChange={handleChange}
-          wrap="soft"
-          maxLength={200}
+      <button
+        className={`label label-${completeState ? "complete" : "incomplete"}`}
+        onClick={() => {setComplete(!completeState); cardUpdate()}}
+        title="Complete"
+      >
+        <span className="label-text font-large">{!completeState ? "Complete?" : "Incomplete?"}</span>
+      </button>
+    <form onSubmit={(event) => {event.preventDefault(); cardUpdate()}}>
+        <span className="card-field-container">
+          <textarea
+            className="font-small"
+            placeholder="Insert field"
+            name="card-field"
+            value={textfield}
+            onChange={handleChange}
+            wrap="soft"
+            maxLength={200}
+          />
+          <p className="card-date-modified font-smaller">
+            {`${dayjs(date_modified).format("MMM. DD, YYYY hh:mm A")}`}
+          </p>
+        </span>
+        <ButtonsUtility
+          color="light"
+          direction="column"
+          dndRef={setActivatorNodeRef}
+          dndListeners={listeners}
+          handleDelete={() => {
+            deleteCard(id);
+          }}
         />
-        <p className="card-date-modified font-smaller">
-          {`${dayjs(date_modified).format("MMM. DD, YYYY hh:mm A")}`}
-        </p>
       </form>
-      <ButtonsUtility
-        color="light"
-        direction="column"
-        dndRef={setActivatorNodeRef}
-        dndListeners={listeners}
-        handleDelete={() => {deleteCard(id)}}
-        handleComplete={() => {setComplete(!completeState)}}
-      />
     </div>
   );
 };

@@ -21,8 +21,9 @@ import CardBlank from "../Card/CardBlank";
 import ButtonsUtility from "../ButtonsUtility/ButtonsUtility";
 import "./Folder.scss";
 
-const Folder = ({ id, title, cards, deleteFolder }: FolderData) => {
+const Folder = ({ id, title, cards, deleteFolder, completed_cards }: FolderData) => {
   const [currentCards, setCurrentCards] = useState(cards);
+  const [cardsCompleted, setCardsCompleted] = useState(completed_cards)
   const [activeId, setActiveId] = useState<string | number>(0);
   const { setNodeRef } = useDroppable({
     id: id,
@@ -60,12 +61,20 @@ const Folder = ({ id, title, cards, deleteFolder }: FolderData) => {
     setCurrentCards([...currentCards, newCardData]);
   };
 
+  // Calls everytime a card submits
+  const cardUpdate = () => {
+    const cardCompletedAmt = currentCards.filter((card) => card.complete === true).length;
+    setCardsCompleted(cardCompletedAmt)
+    console.log("HA" + cardCompletedAmt)
+  }
+
   return (
     <div className="folder">
       <FolderTitle
         title={title}
         maxLength={20}
         cardsAmount={currentCards?.length}
+        cardsComplete={cardsCompleted}
       />
       <DndContext
         collisionDetection={closestCorners}
@@ -87,6 +96,7 @@ const Folder = ({ id, title, cards, deleteFolder }: FolderData) => {
                   complete={card.complete}
                   is_optional={card.is_optional}
                   deleteCard={card.deleteCard}
+                  cardUpdate={cardUpdate}
                 />
               ))}
             </SortableContext>

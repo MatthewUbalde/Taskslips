@@ -4,9 +4,10 @@ interface Prop {
   title?: string;
   maxLength?: number;
   cardsAmount?: number;
+  cardsComplete?: number;
 }
 
-const FolderTitle = ({ title, maxLength, cardsAmount }: Prop) => {
+const FolderTitle = ({ title, maxLength, cardsComplete, cardsAmount }: Prop) => {
   const [folderTitle, setFolderTitle] = useState(title ?? "");
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -25,7 +26,7 @@ const FolderTitle = ({ title, maxLength, cardsAmount }: Prop) => {
         maxLength={maxLength}
       />
       <div className="folder-title-element folder-card-amount font-larger">
-        {cardsAmount != 0 ? `0/${cardsAmount}` : ""}
+        {cardsAmount != 0 ? `${cardsComplete ?? 0}/${cardsAmount}` : ""}
       </div>
     </form>
   );

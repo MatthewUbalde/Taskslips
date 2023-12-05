@@ -8,6 +8,7 @@ export type CardData = {
   complete: boolean,
   is_optional: boolean,
   deleteCard: (id: string | number) => void,
+  cardUpdate: () => void,
 }
 
 // FolderData holds these Cards for organization uses
