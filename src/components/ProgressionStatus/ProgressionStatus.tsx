@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './ProgressionStatus.scss'
 
 interface Props {
@@ -9,17 +10,23 @@ interface Props {
 }
 
 function ProgressBar({complete, max, label, name, color}: Props) {
+  const [projectName, setProjectName] = useState(name);
   const completePercentage = (complete / max) * 100;
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    event.preventDefault();
+    setProjectName(event.target.value);
+  }
 
   return (
     <div className="progression-status color-light">
-      <div className="progression-info">
+      <form className="progression-info" onSubmit={(event) => event.preventDefault()}>
         <div>
           <span className="font-default">{label}:</span>
-          <span className="font-large">{name}</span>
+          <input className="font-large" value={projectName} placeholder="Project Title" onChange={handleChange}/>
         </div>
         <div className="font-default">{`${complete}/${max}`}</div>
-      </div>
+      </form>
 
       <div className='progress-bar font-default'>
         <div className={`progress-bar-complete ${color}`} style={{width: `${completePercentage}%`}}>
