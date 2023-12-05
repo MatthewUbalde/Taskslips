@@ -1,11 +1,11 @@
-import Binder from "./components/Binder/Binder";
+import Workarea from "./components/Workarea/Workarea";
 import ProgressionStatus from "./components/ProgressionStatus/ProgressionStatus";
 
 
 function App() {
   return (
     <>
-      <Binder id='test' folders={[]}/>
+      <Workarea folders={[]}/>
       <ProgressionStatus complete={5} max={10} color='accent-1' label="Project" name="Test"/>
     </>
   );

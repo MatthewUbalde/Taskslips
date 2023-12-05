@@ -21,23 +21,22 @@ export type FolderData = {
   deleteFolder: (id: string | number) => void,
 }
 
-// Each project has separate Binders
-// BinderData holds these Folders which holds your Cards
-export type BinderData = {
-  id: string | number,
-  title?: string,
-  folders: Array<FolderData>,
-  // This is to possibly temporarily hold data for computation
-  completed_folders?: number,
-}
+// // Each project has separate Binders
+// // BinderData holds these Folders which holds your Cards
+// export type BinderData = {
+//   id: string | number,
+//   title?: string,
+//   folders: Array<FolderData>,
+//   // This is to possibly temporarily hold data for computation
+//   completed_folders?: number,
+// }
 
 // ProjectData holds the entire binder, folder, and cards
 export type ProjectData = {
-  title: string,
+  title?: string,
   description?: string,
-  binders: Array<BinderData>,
-  completed_folders: number,
+  folders: Array<FolderData>,
+  completed_folders?: number,
   date_created: Date | number,
   date_modified?: Date | number,
-  date_deadline?: Date | number,
 }

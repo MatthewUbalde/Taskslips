@@ -3,19 +3,22 @@ import { DndContext, DragEndEvent, closestCorners } from "@dnd-kit/core";
 import { v4 as uuidv4 } from "uuid";
 
 import Folder from "../Folder/Folder";
-import { FolderData, BinderData } from "../../lib/types";
-import "../../colors.scss";
-import "./Binder.scss";
+import { FolderData } from "../../lib/types";
+import "./Workarea.scss";
 import {
   SortableContext,
   horizontalListSortingStrategy,
 } from "@dnd-kit/sortable";
 
+interface Props {
+  folders: Array<FolderData>
+}
+
 const onDragEnd = (event: DragEndEvent) => {
   console.log("onDragEnd", event);
 };
 
-const Binder = ({ id, folders }: BinderData) => {
+const Workarea = ({ folders }: Props) => {
   const [currentFolders, setCurrentFolders] = useState(folders);
 
   const deleteFolder = (id: string | number) => {
@@ -39,12 +42,12 @@ const Binder = ({ id, folders }: BinderData) => {
   };
 
   return (
-    <div id={id.toString()} className="binder">
+    <div className="workarea">
       <button className="folder-add-btn font-large color-light" onClick={() => addFolder()}>
         +
       </button>
       <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
-        <div className="binder-container">
+        <div className="workarea-container">
           {currentFolders.length !== 0 && (
             <SortableContext
               items={currentFolders}
@@ -67,4 +70,4 @@ const Binder = ({ id, folders }: BinderData) => {
   );
 };
 
-export default Binder;
+export default Workarea;
