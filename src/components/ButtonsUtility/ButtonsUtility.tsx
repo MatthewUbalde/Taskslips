@@ -16,7 +16,6 @@ function ButtonsUtility({
   color,
   direction,
   handleDelete,
-  handleComplete,
   dndRef,
   dndListeners,
 }: Props) {
@@ -32,14 +31,6 @@ function ButtonsUtility({
           onClick={handleDelete}
         >
           Delete
-        </button>
-      )}
-      {handleComplete && (
-        <button
-          className={`button-utility color-${oppositeColor} font-small`}
-          onClick={handleComplete}
-        >
-          Complete
         </button>
       )}
       {(dndListeners || dndRef) && (
