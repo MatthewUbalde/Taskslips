@@ -26,6 +26,7 @@ function ProgressBar({complete, max, label, name, color}: Props) {
           <span className='progress-complete-text'>{`${completePercentage}%`}</span>
         </div>
       </div>
+      <span className="font-smaller">TaskSlip - Created by: Matthew Ubalde</span>
     </div>
   )
 }
