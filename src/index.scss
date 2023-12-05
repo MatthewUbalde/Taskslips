@@ -27,6 +27,8 @@ textarea, input {
 
   padding: 0;
   border-radius: 8px;
+
+  box-sizing: border-box;
 }
 
 textarea::placeholder, input::placeholder,
