@@ -7,6 +7,8 @@
   height: 85vh;
   overflow-x: scroll;
 
+  box-sizing: border-box;
+
   .folder {
     margin: 0 0.5rem;
   }
@@ -14,9 +16,10 @@
   .folder-add-btn {
     padding: 1rem;
     margin-right: 1rem;
+    margin: 1rem 0;
 
     border: none;
-
+    
     border-radius: 8px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;

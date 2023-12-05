@@ -1,8 +1,15 @@
-@import "../../../colors.scss";
+@import "../../colors.scss";
 
 .progression-status {
   display: flex;
   flex-direction: column;
+
+  width: 100%;
+  height: 15vh;
+
+  padding: 1rem;
+
+  box-sizing: border-box;
 }
 
 .progression-info {

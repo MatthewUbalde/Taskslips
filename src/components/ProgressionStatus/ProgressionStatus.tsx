@@ -12,7 +12,7 @@ function ProgressBar({complete, max, label, name, color}: Props) {
   const completePercentage = (complete / max) * 100;
 
   return (
-    <div className="progression-status">
+    <div className="progression-status color-light">
       <div className="progression-info">
         <div>
           <span className="font-default">{label}:</span>
