@@ -50,6 +50,13 @@ const Folder = ({ id, title, cards, deleteFolder, completed_cards }: FolderData)
     });
   };
 
+  // Calls everytime a card submits
+  const cardUpdate = () => {
+    const cardCompletedAmt = currentCards.filter((card) => card.complete === true).length;
+    setCardsCompleted(cardCompletedAmt)
+    console.log("HA" + cardCompletedAmt)
+  }
+
   const addCard = () => {
     const newCardData: CardData = {
       id: uuidv4(),
@@ -57,16 +64,10 @@ const Folder = ({ id, title, cards, deleteFolder, completed_cards }: FolderData)
       complete: false,
       is_optional: false,
       deleteCard: deleteCard,
+      cardUpdate: cardUpdate,
     };
     setCurrentCards([...currentCards, newCardData]);
   };
-
-  // Calls everytime a card submits
-  const cardUpdate = () => {
-    const cardCompletedAmt = currentCards.filter((card) => card.complete === true).length;
-    setCardsCompleted(cardCompletedAmt)
-    console.log("HA" + cardCompletedAmt)
-  }
 
   return (
     <div className="folder">
